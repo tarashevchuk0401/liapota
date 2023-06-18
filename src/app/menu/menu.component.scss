@@ -1,0 +1,73 @@
+@import '/src/styles.scss';
+
+main {}
+
+nav {
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+}
+
+button {
+    @include button1;
+    margin-top: .5rem;
+}
+
+.checkDay {
+    background-color: $color_green;
+}
+
+.item_image {
+    width: 140px;
+    // height: 15%;
+    object-fit: cover;
+    border-radius: 2rem;
+    margin: 1rem;
+}
+
+.cart{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    border: 5px solid $color_green;
+    border-radius: 3rem;
+    margin: .5rem;
+}
+
+.item_idNumber{
+    text-align: center;
+    font-size: 2rem;
+    font-weight: 500;
+}
+
+.item_name{
+    font-size: 1.5rem;
+    font-weight: 500;
+}
+
+.dishes {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    justify-content: center;
+    margin-left: 7rem;
+    border-left: 10px solid $color_pink;
+    border-radius: 5px;
+    padding-left: 1rem;
+}
+
+.text{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    flex-grow: 1;
+    margin: .5rem;
+}
+
+.item_price{
+    text-align: end;
+    font-size: 2rem;
+    font-weight: 500;
+    color: $color_pink;
+}
+

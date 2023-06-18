@@ -1,1 +1,49 @@
-<p>admin works!</p>
+<main>
+    <form (ngSubmit)="submitReset(menu)" #menu="ngForm">
+        <mat-form-field color="warn">
+            <mat-label>Страва</mat-label>
+            <input  matInput type="text" ngModel name="dish1" required>
+        </mat-form-field>
+        <mat-form-field color="warn">
+            <mat-label>Страва 2</mat-label>
+            <input  matInput type="text" ngModel name="dish2" >
+        </mat-form-field>
+        <mat-form-field color="warn">
+            <mat-label>Страва 3</mat-label>
+            <input  matInput type="text" ngModel name="dish3" >
+        </mat-form-field>
+        <mat-form-field color="warn">
+            <mat-label>Страва 4</mat-label>
+            <input  matInput type="text" ngModel name="dish4" >
+        </mat-form-field>
+        <mat-form-field color="warn">
+            <mat-label>Страва 5</mat-label>
+            <input  matInput type="text" ngModel name="dish5" >
+        </mat-form-field>
+        <mat-form-field color="warn">
+            <mat-label>Страва 6</mat-label>
+            <input  matInput type="text" ngModel name="dish6" >
+        </mat-form-field>
+        <mat-form-field>
+            <mat-label>Ціна</mat-label>
+            <input matInput type="number" ngModel name="price" required>
+        </mat-form-field>
+        <mat-form-field>
+            <mat-label>Номер</mat-label>
+            <input matInput type="number" ngModel name="idNumber" required>
+        </mat-form-field>
+        <mat-form-field>
+            <mat-label>Доступність</mat-label>
+            <mat-select ngModel name="dayOfWeek" required>
+                <mat-option value="all">всі</mat-option>
+                <mat-option value="1">понеділок</mat-option>
+                <mat-option value="2">вівторок</mat-option>
+                <mat-option value="3">середа</mat-option>
+                <mat-option value="4">четвер</mat-option>
+                <mat-option value="5">п'ятниця</mat-option>
+                <mat-option value="0">TEST</mat-option>
+            </mat-select>
+        </mat-form-field>
+        <button [class.disabled]="menu.form.invalid" type="submit" >Додати</button>
+    </form>
+</main>

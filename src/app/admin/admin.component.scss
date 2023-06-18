@@ -1,0 +1,17 @@
+@import '/src/styles.scss';
+main{
+    display: flex;
+    justify-content: center;
+}
+
+
+form{
+    display: flex;
+    flex-direction: column;
+    width: 70%;
+    margin-top: 2rem;
+}
+
+button {
+    @include button1
+}

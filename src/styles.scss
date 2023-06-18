@@ -6,12 +6,35 @@ sans-serif;
 $font_nutino : 'Nunito',
 sans-serif;
 
-$color_green: rgb(43, 118, 39);
+$color_green: rgb(47, 121, 52);
 $color_pink: rgb(231, 61, 109);
 $color_pink_light: rgb(247, 191, 173);
 $color_white: rgb(255, 255, 255);
 $color_black: rgb(29, 29, 27);
 
+@mixin button1 {
+    background-color: $color_pink_light;
+    color: $color_pink;
+    font-size: 2rem;
+    font-weight: 800;
+    font-family: $font_nutino;
+    border-radius: 1rem;
+    margin-left: .8rem;
+    margin-bottom: 0.8rem;
+    padding: .7rem;
+
+    &:hover {
+        transform: translateY(-2px);
+        opacity: .9;
+    }
+}
+
+html,
+body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
 
 * {
     box-sizing: border-box;
@@ -25,4 +48,19 @@ body {
 
 button {
     border: none;
+    cursor: pointer;
+}
+
+.disabled {
+    opacity: 0.3;
+    pointer-events: none;
+}
+
+.active_button {
+    background-color: $color_pink;
+    color: $color_pink_light;
+}
+
+h1 {
+    margin: 0;
 }

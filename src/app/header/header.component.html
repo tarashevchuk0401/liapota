@@ -1,10 +1,26 @@
 <main>
     <header>
-        <div class="logo">LOGO</div>
+        <div class="logo" routerLink="menu">
+            <img src="assets/logo/logo_head.png" alt="logo" width="110px">
+            <p class="logo_text">Ляпота</p>
+        </div>
+        <div class="phone">
+            <mat-icon class="icon_phone">phone</mat-icon>
+            <div class="phone_number">
+                <div>097 177 00 23</div>
+                <div>093 305 52 02</div>
+            </div>
+        </div>
         <nav>
-            <button class="nav_button" routerLink="menu">МЕНЮ</button>
-            <button class="nav_button" routerLink="contact">ПРО НАС</button>
-            <button class="nav_button" routerLink="about-us">КОНТАКТ</button>
+         
+            <button routerLink="menu" routerLinkActive="active_button">МЕНЮ</button>
+            <button routerLink="contact" routerLinkActive="active_button">ПРО НАС</button>
+            <button routerLink="about-us" routerLinkActive="active_button">КОНТАКТ</button>
+            <button routerLink="admin" routerLinkActive="active_button">
+                <mat-icon>
+                    settings
+                </mat-icon>
+            </button>
         </nav>
     </header>
 </main>

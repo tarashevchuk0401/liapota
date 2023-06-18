@@ -1,15 +1,16 @@
 main {
     position: relative;
-    height: 100vh;
-    margin-top: 5px;
+    min-height: 100vh;
 }
 
 app-header {
-    position: fixed;
-    top: 0;
-    width: 100%;
+   
 }
 
 section {
-    margin-top: 7rem;
+ 
+}
+
+app-footer{
+
 }
