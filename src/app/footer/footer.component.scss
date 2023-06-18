@@ -1,0 +1,10 @@
+@import '/src/styles.scss';
+
+main {
+    background-color: $color_green ;
+}
+
+footer {
+    display: flex;
+    justify-content: space-around;
+}

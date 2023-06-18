@@ -10,6 +10,8 @@ import { MenuComponent } from './menu/menu.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MaterialsModule } from './materials/materials.module';
 import { AdminComponent } from './admin/admin.component';
+import { ContactComponent } from './contact/contact.component';
+import { AboutUsComponent } from './about-us/about-us.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +20,9 @@ import { AdminComponent } from './admin/admin.component';
     HeaderComponent,
     FooterComponent,
     MenuComponent,
-    AdminComponent
+    AdminComponent,
+    ContactComponent,
+    AboutUsComponent
   ],
   imports: [
     BrowserModule,

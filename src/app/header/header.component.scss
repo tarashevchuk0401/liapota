@@ -1,0 +1,44 @@
+@import '/src/styles.scss';
+
+main{
+    display: flex;
+    justify-content: center;
+    height: 7rem;
+    position: relative;
+    background-color: $color_green;
+    
+}
+
+header{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 90%;
+ 
+}
+
+nav{
+    display: flex;
+    flex-grow: 1;
+    justify-content: flex-end;
+}
+
+.nav_button{
+    background-color: $color_pink_light;
+    color: $color_pink;
+    font-size: 2rem;
+    font-weight: 800;
+    font-family: $font_nutino;
+    border-radius: 1rem;
+    margin-left: .8rem;
+    margin-bottom: 0.8rem;
+    padding: .7rem;
+   
+    &:hover{
+        transform: translateY(-2px);
+        opacity: .9;
+        // transition: all, 1s, ease;
+        
+        // border-bottom: 5px solid $color_pink;
+    }
+}
