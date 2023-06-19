@@ -6,19 +6,19 @@ main {
     height: 7.5rem;
     position: relative;
     background-color: $color_green;
-
 }
 
 header {
     display: flex;
     justify-content: space-around;
     align-items: center;
-    width: 90%;
+    flex-grow: 1;
+    width: 98%;
 }
 
 nav {
     display: flex;
-    flex-grow: 1;
+    flex-grow: 0;
     justify-content: flex-end;
 }
 
@@ -31,6 +31,10 @@ button {
     color: $color_pink_light;
 }
 
+.logo_img{
+    width: 110px;
+}
+
 .logo {
     display: flex;
     align-items: center;
@@ -40,17 +44,20 @@ button {
 
 .logo_text {
     color: $color_white;
-    font-size: 5rem;
+    font-size: 4rem;
     font-weight: 600;
-    margin-left: 1rem;
+    margin-left: .5rem;
 }
 
 .phone {
     color: $color_white;
     display: flex;
     // align-items: end;
-    font-size: 2rem;
-    margin-left: 10rem;
+    font-size: 1.5rem;
+    display: flex;
+    justify-content: flex-end;
+    flex-grow: 0;
+    align-items: center;
 }
 
 .phone_number {
@@ -67,9 +74,107 @@ button {
 .icon_phone {
     font-size: 3rem;
     width: 3.5rem;
-    height: 3.5rem;
+    height: 3rem;
 }
 
 .nav_button {
     @include button1;
+}
+
+/////////////////////////////////////// 
+@media (max-width: 1080px){
+    main {
+        height: 5rem;
+    }
+    
+    header {
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        width: 90%;
+    }
+
+    .logo_img{
+        width: 80px;
+    }
+
+    .logo_text {
+        color: $color_white;
+        font-size: 2.5rem;
+        margin-left: .5rem;
+    }
+    
+    .logo {
+        display: flex;
+        align-items: center;
+    } 
+    
+    .phone {
+        color: $color_white;
+        display: flex;
+        font-size: 1.5rem;
+    }
+    
+    .phone_number {
+    
+        div {
+            margin-top: .5rem;
+        }
+    }
+    
+    .icon_phone {
+        font-size: 2rem;
+        width: 2.5rem;
+        height: 2.5rem;
+    }
+}
+
+//////////////////////////////////
+
+@media (max-width: 800px){
+    main {
+        height: 3rem;
+    }
+    
+    header {
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        width: 90%;
+    }
+
+    .logo_img{
+        width: 47px;
+    }
+
+    .logo_text {
+        color: $color_white;
+        font-size: 1.5rem;
+        margin-left: .4rem;
+    }
+    
+    .logo {
+        display: flex;
+        align-items: center;
+    } 
+    
+    .phone {
+        color: $color_white;
+        display: flex;
+        font-size: 1rem;
+        margin-bottom: 3px;
+    }
+    
+    .phone_number {
+    
+        div {
+            margin-top: .5rem;
+        }
+    }
+    
+    .icon_phone {
+        font-size: 1.2rem;
+        width: 1.9rem;
+        height: 1.9rem;
+    }
 }
