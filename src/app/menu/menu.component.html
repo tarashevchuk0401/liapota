@@ -1,34 +1,50 @@
-<main>
-    <nav>
-       
-        <button (click)="showMonday()" [class.active_button]="dayNumberToday == 1"
-            [class.checkDay]="checkDay == 1">Понеділок</button>
-        <button (click)="showTuesday()" [class.active_button]="dayNumberToday == 2"
-            [class.checkDay]="checkDay == 2">Вівторок</button>
-        <button (click)="showWednesday()" [class.active_button]="dayNumberToday == 3"
-        [class.checkDay]="checkDay == 3" >Середа</button>
-        <button (click)="showThursday()" [class.active_button]="dayNumberToday == 4"
-        [class.checkDay]="checkDay == 4">Четвер</button>
-        <button (click)="showFriday()" [class.active_button]="dayNumberToday == 5" 
-        [class.checkDay]="checkDay == 5">П'ятниця</button>
-    </nav>
-</main>
-<section>
-    <div class="cart" *ngFor="let item of renderingMenu">
-        <div class="text">
-            <div class="info">
-                <h1 class="item_idNumber">Комплекс # {{item.idNumber}}</h1>
-                <div class="dishes">
-                    <p class="item_name">{{item.dish1}}</p>
-                    <p class="item_name">{{item.dish2}}</p>
-                    <p class="item_name">{{item.dish3}}</p>
-                    <p class="item_name">{{item.dish4}}</p>
-                    <p class="item_name">{{item.dish5}}</p>
-                    <p class="item_name">{{item.dish6}}</p>
-                </div>
-            </div>
-            <p class="item_price">{{item.price}} грн</p>
-        </div>
-        <img class="item_image" src="assets/img/IMG_5153.jpg" alt="potato">
+<div class="wrapper">
+    <div class="sidenav">
+        <button (click)="changePartOfMenu('lunch')" [class.active_button]="currentPartOfMenu == 'lunch'"
+        >Комплексні обіди</button>
+        <button (click)="changePartOfMenu('set')" [class.active_button]="currentPartOfMenu == 'set'"
+        >М'ясні сети</button>
+        <button (click)="changePartOfMenu('dessert')" [class.active_button]="currentPartOfMenu == 'dessert'"
+        >Десерти</button>
+        <button (click)="changePartOfMenu('buffet')" [class.active_button]="currentPartOfMenu == 'buffet'"
+        >Фуршет</button>
     </div>
-</section>
+    <div class="rendering">
+        <div *ngIf="currentPartOfMenu === 'lunch'">
+            <main>
+                <nav>
+                    <button (click)="showMonday()" [class.active_button]="dayNumberToday == 1"
+                        [class.checkDay]="checkDay == 1">Понеділок</button>
+                    <button (click)="showTuesday()" [class.active_button]="dayNumberToday == 2"
+                        [class.checkDay]="checkDay == 2">Вівторок</button>
+                    <button (click)="showWednesday()" [class.active_button]="dayNumberToday == 3"
+                        [class.checkDay]="checkDay == 3">Середа</button>
+                    <button (click)="showThursday()" [class.active_button]="dayNumberToday == 4"
+                        [class.checkDay]="checkDay == 4">Четвер</button>
+                    <button (click)="showFriday()" [class.active_button]="dayNumberToday == 5"
+                        [class.checkDay]="checkDay == 5">П'ятниця</button>
+                </nav>
+            </main>
+            <section>
+                <div class="cart" *ngFor="let item of renderingMenu">
+                    <div class="text">
+                        <div class="info">
+                            <h1 class="item_idNumber">Комплекс # {{item.idNumber}}</h1>
+                            <div class="dishes">
+                                <p class="item_name">{{item.dish1}}</p>
+                                <p class="item_name">{{item.dish2}}</p>
+                                <p class="item_name">{{item.dish3}}</p>
+                                <p class="item_name">{{item.dish4}}</p>
+                                <p class="item_name">{{item.dish5}}</p>
+                                <p class="item_name">{{item.dish6}}</p>
+                            </div>
+                        </div>
+                        <p class="item_price">{{item.price}} грн</p>
+                    </div>
+                    <img class="item_image" src="assets/img/IMG_5153.jpg" alt="potato">
+                </div>
+            </section>
+        </div>
+        <div  *ngIf="currentPartOfMenu === 'set'">SETT</div>
+    </div>
+</div>

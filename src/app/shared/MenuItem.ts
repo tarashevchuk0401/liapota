@@ -1,5 +1,6 @@
 export interface MenuItem {
     dayOfWeek : string,
+    partOfMenu? : string,
     img?: string,
     price: number,
     idNumber: number,
@@ -10,3 +11,5 @@ export interface MenuItem {
     dish5?: string,
     dish6?: string,
 }
+
+//pertofMenu make required

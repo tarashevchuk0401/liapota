@@ -17,6 +17,7 @@ export class MenuComponent implements OnInit{
 
   dayNumberToday: number | undefined;
   checkDay: number | undefined;
+  currentPartOfMenu: string = 'lunch';
 
 
 
@@ -26,10 +27,7 @@ export class MenuComponent implements OnInit{
     this.getDayOfWeek();
     this.checkDay = this.dayNumberToday;
 
-    this.getAllItems();
-
-    // this.todayMenu = this.allMenu.filter(item => item.dayOfWeek === this.dayNumberToday)
-  }
+    this.getAllItems();  }
 
   getAllItems(){
     this.serverService.getItem().pipe(
@@ -47,13 +45,18 @@ export class MenuComponent implements OnInit{
     console.log(this.dayNumberToday);
   }
 
+  changePartOfMenu(newPart : string){
+    this.currentPartOfMenu =  newPart;;
+    
+  }
+
  
 ///
 showSunday(){
     this.renderingMenu = this.allMenu.filter(item => item.dayOfWeek == '0' || item.dayOfWeek === 'all');
     this.checkDay = 0;
   }
-//////
+//////   ONE FUNCTION /////////////////
   showMonday(){
     this.renderingMenu = this.allMenu.filter(item => item.dayOfWeek === '1');
     this.checkDay = 1;

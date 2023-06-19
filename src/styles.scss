@@ -24,6 +24,8 @@ $color_black: rgb(29, 29, 27);
     padding: .5rem;
     display: flex;
     flex-shrink: 0;
+    text-align: center;
+    justify-content: center;
 
     &:hover {
         transform: translateY(-2px);
