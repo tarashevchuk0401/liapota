@@ -1,0 +1,79 @@
+@import '/src/styles.scss';
+
+main {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+section {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-top: 1rem;
+
+}
+
+.info {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+.contact {
+    background-color: $color_green;
+    color: $color_white;
+    font-family: $font_nutino;
+    font-weight: 700;
+    font-size: 2rem;
+    border-radius: 3rem;
+    padding: 2rem;
+    display: flex;
+    justify-content: center;
+    margin: .5rem;
+    text-align: center;
+}
+
+.contact_header {
+    font-size: 3rem;
+    line-height: 4rem;
+}
+
+.contact_text {
+    font-size: 2rem;
+}
+
+.map {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: $color_white;
+    font-family: $font_nutino;
+    background-color: $color_green;
+    border-radius: 3rem;
+    padding: 2rem;
+    margin: 0.5rem;
+
+}
+
+.map_iframes {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.map_card{
+    // display: flex;
+    // justify-content: center;
+    text-align: center;
+    font-size: 2rem;
+    margin: 1rem;
+}
+
+iframe {
+    margin: 0.5rem;
+    border-radius: 2rem;
+    border: 5px solid $color_white;
+    height: 15rem;
+    width: 40rem;
+}

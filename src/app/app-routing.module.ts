@@ -8,7 +8,7 @@ import { AppComponent } from './app.component';
 import { AdminComponent } from './admin/admin.component';
 
 const routes: Routes = [ 
-  {path: '', component: AppComponent},
+  {path: '', component: MenuComponent},
   {path: 'home', component: HomeComponent},
   {path: 'menu', component: MenuComponent},
   {path: 'contact', component: ContactComponent},
