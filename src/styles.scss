@@ -28,7 +28,7 @@ $color_black: rgb(29, 29, 27);
     justify-content: center;
 
     &:hover {
-        transform: translateY(-2px);
+        transform: translateY(3px);
         opacity: .9;
     }
 
@@ -42,6 +42,14 @@ $color_black: rgb(29, 29, 27);
     }
 }
 
+@mixin card_green {
+    background-color: $color_green;
+    padding: 2rem;
+    color: $color_white;
+    font-family: $font_nutino;
+    border-radius: 3rem;
+}
+
 html,
 body {
     height: 100%;
@@ -52,6 +60,10 @@ body {
 * {
     box-sizing: border-box;
     font-weight: 400;
+}
+
+p{
+    margin: 0;
 }
 
 body {

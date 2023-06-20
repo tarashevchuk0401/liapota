@@ -7,6 +7,7 @@ main {
 footer {
     display: flex;
     justify-content: space-around;
+    align-items: center;
 }
 
 .footer_button{
@@ -30,4 +31,15 @@ footer {
     width: 350px;
     object-fit: contain;
     margin: 5px;
+}
+
+.contact_icon{
+    width: 100px;
+    height: 100px;
+    cursor: pointer;
+
+    &:hover {
+        transform: translateY(4px);
+       
+    }
 }

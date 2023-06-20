@@ -27,20 +27,23 @@
             </main>
             <section>
                 <div class="cart" *ngFor="let item of renderingMenu">
-                    <div class="text">
-                        <div class="info">
+
+                    <div class="info">
+                        <div class="card_header">
                             <h1 class="item_idNumber">Комплекс # {{item.idNumber}}</h1>
-                            <div class="dishes">
-                                <p class="item_name">{{item.dish1}}</p>
-                                <p class="item_name">{{item.dish2}}</p>
-                                <p class="item_name">{{item.dish3}}</p>
-                                <p class="item_name">{{item.dish4}}</p>
-                                <p class="item_name">{{item.dish5}}</p>
-                                <p class="item_name">{{item.dish6}}</p>
-                            </div>
+                            <p class="item_price">{{item.price}} грн</p>
                         </div>
-                        <p class="item_price">{{item.price}} грн</p>
+                        <div class="dishes">
+                            <p class="item_name">{{item.dish1}}</p>
+                            <p class="item_name">{{item.dish2}}</p>
+                            <p class="item_name">{{item.dish3}}</p>
+                            <p class="item_name">{{item.dish4}}</p>
+                            <p class="item_name">{{item.dish5}}</p>
+                            <p class="item_name">{{item.dish6}}</p>
+                        </div>
                     </div>
+
+
                     <img class="item_image" src="assets/img/IMG_5153.jpg" alt="potato">
                 </div>
             </section>
@@ -50,7 +53,7 @@
                 <div class="cart" *ngFor="let item of renderingMenu">
                     <div class="text">
                         <div class="info">
-                            <!-- <h1 class="item_idNumber">Комплекс # {{item.idNumber}}</h1> -->
+                            <h1 class="item_idNumber">{{item.dish1}}</h1>
                             <div class="dishes">
                                 <p class="item_name">{{item.dish1}}</p>
                                 <p class="item_name">{{item.dish2}}</p>
@@ -92,7 +95,7 @@
                 <div class="cart" *ngFor="let item of renderingMenu">
                     <div class="text">
                         <div class="info">
-                            <!-- <h1 class="item_idNumber">Комплекс # {{item.idNumber}}</h1> -->
+                            <!-- <h1 class="item_idNumber">Компgitлекс # {{item.idNumber}}</h1> -->
                             <div class="dishes">
                                 <p class="item_name">{{item.dish1}}</p>
                                 <p class="item_name">{{item.dish2}}</p>

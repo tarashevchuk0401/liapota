@@ -47,9 +47,7 @@ export class MenuComponent implements OnInit{
 
   changePartOfMenu(newPart : string){
     this.currentPartOfMenu =  newPart;
-    this.renderingMenu = this.allMenu.filter(item => item.partOfMenu === newPart);
-
-    
+    this.renderingMenu = this.allMenu.filter(item => item.partOfMenu === newPart); 
   }
 
   changeDay(day:string){
