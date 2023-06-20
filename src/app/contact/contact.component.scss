@@ -47,6 +47,7 @@ section {
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: space-between;
     color: $color_white;
     font-family: $font_nutino;
     background-color: $color_green;
@@ -56,10 +57,18 @@ section {
 
 }
 
+.map_addres{
+    font-size: 3rem;
+    margin: 2rem 0;
+}
+
 .map_iframes {
     display: flex;
     flex-direction: row;
-    align-items: center;
+    // align-items: center;
+    justify-content: space-between;
+    flex-grow: 1;
+    width: 90%;
 }
 
 .map_card{
@@ -67,13 +76,16 @@ section {
     // justify-content: center;
     text-align: center;
     font-size: 2rem;
-    margin: 1rem;
 }
 
 iframe {
     margin: 0.5rem;
     border-radius: 2rem;
     border: 5px solid $color_white;
-    height: 15rem;
-    width: 40rem;
+    height: 19rem;
+    max-width: 80%;
+}
+
+.contact_icon{
+    font-weight: 700;
 }

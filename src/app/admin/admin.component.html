@@ -44,6 +44,16 @@
                 <mat-option value="0">TEST</mat-option>
             </mat-select>
         </mat-form-field>
+        <mat-form-field>
+            <mat-label>Тип меню</mat-label>
+            <mat-select ngModel name="partOfMenu" required>
+                <mat-option value="lunch">Обід</mat-option>
+                <mat-option value="dessert">Десерт</mat-option>
+                <mat-option value="set">Мясний сет</mat-option>
+                <mat-option value="buffet">Фуршет</mat-option>
+            </mat-select>
+        </mat-form-field>
+        
         <button [class.disabled]="menu.form.invalid" type="submit" >Додати</button>
     </form>
 </main>

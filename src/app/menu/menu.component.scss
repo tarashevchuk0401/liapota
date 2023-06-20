@@ -1,5 +1,23 @@
 @import '/src/styles.scss';
 
+.wrapper{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.sidenav{
+    width: 20%;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    
+}
+
+.rendering{
+    width: 100%;
+}
+
 main {}
 
 nav {
@@ -18,7 +36,7 @@ button {
 }
 
 .item_image {
-    width: 140px;
+    width: 12%;
     // height: 15%;
     object-fit: cover;
     border-radius: 2rem;
@@ -28,10 +46,21 @@ button {
 .cart{
     display: flex;
     justify-content: space-around;
-    align-items: center;
+    align-items: flex-start;
     border: 5px solid $color_green;
     border-radius: 3rem;
     margin: .5rem;
+}
+
+.card_header{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-grow: 1;
+
+    p{
+        margin-left: 5rem;
+    }
 }
 
 .item_idNumber{
@@ -40,9 +69,17 @@ button {
     font-weight: 500;
 }
 
+.info{
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    margin-top: 2rem;
+}
+
 .item_name{
-    font-size: 1.5rem;
+    font-size: 2rem;
     font-weight: 500;
+    line-height: 2.5rem;
 }
 
 .dishes {
@@ -54,12 +91,14 @@ button {
     border-left: 10px solid $color_pink;
     border-radius: 5px;
     padding-left: 1rem;
+    margin-top: 3rem;
 }
 
 .text{
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    justify-content: flex-start;
+    
     flex-grow: 1;
     margin: .5rem;
 }

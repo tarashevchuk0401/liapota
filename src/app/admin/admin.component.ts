@@ -23,6 +23,7 @@ export class AdminComponent {
       dayOfWeek: menu.value.dayOfWeek,
       price: menu.value.price,
       idNumber: menu.value.idNumber,
+      partOfMenu: menu.value.partOfMenu,
     }
 
     if (menu.valid) {
