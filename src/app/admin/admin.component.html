@@ -58,24 +58,29 @@
     </form>
     <div class="container">
         <button (click)="filterByPartOfMenu('lunch')"
-        [class.active_button]="checkedPartOfMenu == 'lunch'"
-        >Обіди</button>
-        <button (click)="filterByPartOfMenu('set')" 
-        [class.active_button]="checkedPartOfMenu == 'set'"
-        >Мясні сети</button>
-        <button (click)="filterByPartOfMenu('dessert')" 
-        [class.active_button]="checkedPartOfMenu == 'dessert'"
-        >Десерти</button>
-        <button (click)="filterByPartOfMenu('buffet')" 
-        [class.active_button]="checkedPartOfMenu == 'buffet'"
-        >Фуршет</button>
+            [class.active_button]="checkedPartOfMenu == 'lunch'">Обіди</button>
+        <button (click)="filterByPartOfMenu('set')" [class.active_button]="checkedPartOfMenu == 'set'">Мясні
+            сети</button>
+        <button (click)="filterByPartOfMenu('dessert')"
+            [class.active_button]="checkedPartOfMenu == 'dessert'">Десерти</button>
+        <button (click)="filterByPartOfMenu('buffet')"
+            [class.active_button]="checkedPartOfMenu == 'buffet'">Фуршет</button>
     </div>
+
+    <nav class="container" *ngIf="checkedPartOfMenu == 'lunch'">
+        <button (click)="changeDay('1')" [class.active_button]="checkedDay === '1'">Понеділок</button>
+        <button (click)="changeDay('2')" [class.active_button]="checkedDay == '2'">Вівторок</button>
+        <button (click)="changeDay('3')" [class.active_button]="checkedDay == '3'">Середа</button>
+        <button (click)="changeDay('4')" [class.active_button]="checkedDay == '4'">Четвер</button>
+        <button (click)="changeDay('5')" [class.active_button]="checkedDay == '5'">П'ятниця</button>
+    </nav>
+
     <section>
         <div class="cart" *ngFor="let item of showMenu">
             <div class="info">
                 <div class="card_header">
                     <h1 class="item_idNumber">Комплекс # {{item.idNumber}}</h1>
-                    <p class="item_price">{{item.price}} грн</p>
+                    <p class="item_price"> Ціна :{{item.price}} грн</p>
                     <div [ngSwitch]="item.dayOfWeek">
                         <div *ngSwitchCase="'1'">Понеділок</div>
                         <div *ngSwitchCase="'2'">Вівторок</div>
@@ -100,8 +105,7 @@
                     delete
                 </mat-icon>
             </button>
-            <!-- <img class="item_image" src="assets/img/IMG_5153.jpg" alt="potato"> -->
+            <!-- <img class="item_image" src="assets/img/IMG_5153.jpg" alt="potato" width="55px"> -->
         </div>
     </section>
-
 </main>
