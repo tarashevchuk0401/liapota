@@ -2,6 +2,9 @@
 main{
     display: flex;
     justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
 }
 
 
@@ -14,4 +17,44 @@ form{
 
 button {
     @include button1
+}
+
+.container{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+section{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    // align-items: center;
+    justify-content: center;
+}
+
+.cart{
+    margin: 1rem;
+    background-color: $color_green;
+    color: $color_white;
+    padding: 1.5rem;
+    border-radius: 1rem;
+    font-size: 1.5rem;
+    line-height: 2rem;
+    font-family: $font_nutino;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+}
+
+.info{
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    // justify-content: center;
+}
+
+.item_id{
+    font-size: .8rem
+    ;
 }

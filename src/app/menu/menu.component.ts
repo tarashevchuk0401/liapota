@@ -9,7 +9,7 @@ import { MatDialog } from '@angular/material/dialog';
   templateUrl: './menu.component.html',
   styleUrls: ['./menu.component.scss']
 })
-export class MenuComponent implements OnInit{
+export class MenuComponent implements OnInit {
 
   allMenu: MenuItem[] = [];
   todayMenu: MenuItem[] = [];
@@ -21,36 +21,44 @@ export class MenuComponent implements OnInit{
 
 
 
-  constructor(private serverService: ServerService){}
+  constructor(private serverService: ServerService) { }
 
   ngOnInit(): void {
     this.getDayOfWeek();
     this.checkDay = this.dayNumberToday;
 
-    this.getAllItems();  }
+    this.getAllItems();
+  }
 
-  getAllItems(){
+  getAllItems() {
     this.serverService.getItem().pipe(
-      map(item => Object.values(item)),
-      map(i =>Object.values(i)),
-    ).subscribe((data: any) => {
+     map(response => {
+      let post = [];
+      for (const key in response) {
+        if (response.hasOwnProperty(key)) {
+          post.push({ ...response[key], id: key });
+        }
+      }
+      return post
+    }))
+    .subscribe((data: any) => {
       this.allMenu = data;
       this.renderingMenu = this.allMenu.filter(item => item.dayOfWeek === this.dayNumberToday?.toString())
     });
   }
 
-  getDayOfWeek(){
+  getDayOfWeek() {
     let date = new Date();
     this.dayNumberToday = date.getDay();
-    console.log(this.dayNumberToday);
+    // console.log(this.dayNumberToday);
   }
 
-  changePartOfMenu(newPart : string){
-    this.currentPartOfMenu =  newPart;
-    this.renderingMenu = this.allMenu.filter(item => item.partOfMenu === newPart); 
+  changePartOfMenu(newPart: string) {
+    this.currentPartOfMenu = newPart;
+    this.renderingMenu = this.allMenu.filter(item => item.partOfMenu === newPart);
   }
 
-  changeDay(day:string){
+  changeDay(day: string) {
     this.renderingMenu = this.allMenu.filter(item => item.dayOfWeek === day);
     this.checkDay = +day;
   }

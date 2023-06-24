@@ -2,27 +2,27 @@
     <form (ngSubmit)="submitReset(menu)" #menu="ngForm">
         <mat-form-field color="warn">
             <mat-label>Страва</mat-label>
-            <input  matInput type="text" ngModel name="dish1" required>
+            <input matInput type="text" ngModel name="dish1" required>
         </mat-form-field>
         <mat-form-field color="warn">
             <mat-label>Страва 2</mat-label>
-            <input  matInput type="text" ngModel name="dish2" >
+            <input matInput type="text" ngModel name="dish2">
         </mat-form-field>
         <mat-form-field color="warn">
             <mat-label>Страва 3</mat-label>
-            <input  matInput type="text" ngModel name="dish3" >
+            <input matInput type="text" ngModel name="dish3">
         </mat-form-field>
         <mat-form-field color="warn">
             <mat-label>Страва 4</mat-label>
-            <input  matInput type="text" ngModel name="dish4" >
+            <input matInput type="text" ngModel name="dish4">
         </mat-form-field>
         <mat-form-field color="warn">
             <mat-label>Страва 5</mat-label>
-            <input  matInput type="text" ngModel name="dish5" >
+            <input matInput type="text" ngModel name="dish5">
         </mat-form-field>
         <mat-form-field color="warn">
             <mat-label>Страва 6</mat-label>
-            <input  matInput type="text" ngModel name="dish6" >
+            <input matInput type="text" ngModel name="dish6">
         </mat-form-field>
         <mat-form-field>
             <mat-label>Ціна</mat-label>
@@ -53,7 +53,55 @@
                 <mat-option value="buffet">Фуршет</mat-option>
             </mat-select>
         </mat-form-field>
-        
-        <button [class.disabled]="menu.form.invalid" type="submit" >Додати</button>
+
+        <button [class.disabled]="menu.form.invalid" type="submit">Додати</button>
     </form>
+    <div class="container">
+        <button (click)="filterByPartOfMenu('lunch')"
+        [class.active_button]="checkedPartOfMenu == 'lunch'"
+        >Обіди</button>
+        <button (click)="filterByPartOfMenu('set')" 
+        [class.active_button]="checkedPartOfMenu == 'set'"
+        >Мясні сети</button>
+        <button (click)="filterByPartOfMenu('dessert')" 
+        [class.active_button]="checkedPartOfMenu == 'dessert'"
+        >Десерти</button>
+        <button (click)="filterByPartOfMenu('buffet')" 
+        [class.active_button]="checkedPartOfMenu == 'buffet'"
+        >Фуршет</button>
+    </div>
+    <section>
+        <div class="cart" *ngFor="let item of showMenu">
+            <div class="info">
+                <div class="card_header">
+                    <h1 class="item_idNumber">Комплекс # {{item.idNumber}}</h1>
+                    <p class="item_price">{{item.price}} грн</p>
+                    <div [ngSwitch]="item.dayOfWeek">
+                        <div *ngSwitchCase="'1'">Понеділок</div>
+                        <div *ngSwitchCase="'2'">Вівторок</div>
+                        <div *ngSwitchCase="'3'">Середа</div>
+                        <div *ngSwitchCase="'4'">Четвер</div>
+                        <div *ngSwitchCase="'5'">П'ятниця</div>
+                        <div *ngSwitchCase="'6'">Всі дні</div>
+                    </div>
+                </div>
+                <div class="dishes">
+                    <p class="item_name">{{item.dish1}}</p>
+                    <p class="item_name">{{item.dish2}}</p>
+                    <p class="item_name">{{item.dish3}}</p>
+                    <p class="item_name">{{item.dish4}}</p>
+                    <p class="item_name">{{item.dish5}}</p>
+                    <p class="item_name">{{item.dish6}}</p>
+                    <p class="item_id"> Код: {{item.id}}</p>
+                </div>
+            </div>
+            <button (click)="deleteItem(item.id!)">
+                <mat-icon>
+                    delete
+                </mat-icon>
+            </button>
+            <!-- <img class="item_image" src="assets/img/IMG_5153.jpg" alt="potato"> -->
+        </div>
+    </section>
+
 </main>

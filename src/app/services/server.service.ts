@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { MenuItem } from '../shared/MenuItem';
-import { Observable } from 'rxjs';
+import { Observable, map } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -17,7 +17,17 @@ export class ServerService {
   }
 
   getItem(): Observable<any>{
+    // return this.httpClient.get(this.path).pipe(
+    //   map(item => Object.values(item)),
+    //   map(i =>Object.values(i)),
+    // )
     return this.httpClient.get(this.path)
+  }
+
+  
+
+  deleteItem(id: string){
+    return this.httpClient.delete('https://lapota-te-ua-default-rtdb.europe-west1.firebasedatabase.app/menu/' + id + '.json')
   }
 
 
