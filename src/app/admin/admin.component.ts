@@ -11,9 +11,10 @@ import { map } from 'rxjs';
 })
 export class AdminComponent implements OnInit {
 
-  renderingMenu: MenuItem[] = [];
+  allMenu: MenuItem[] = [];
   showMenu: MenuItem[] = [];
-  checkedPartOfMenu: string = ''
+  checkedPartOfMenu: string = '';
+  checkedDay: string = '';
 
   constructor(private server: ServerService) { }
 
@@ -33,7 +34,6 @@ export class AdminComponent implements OnInit {
       dayOfWeek: menu.value.dayOfWeek,
       price: menu.value.price,
       idNumber: menu.value.idNumber,
-      // id: string,
       partOfMenu: menu.value.partOfMenu,
     }
 
@@ -57,14 +57,19 @@ export class AdminComponent implements OnInit {
         }
         return post
       })).subscribe(data => {
-        this.renderingMenu = data;
+        this.allMenu = data;
       })
   }
 
   filterByPartOfMenu(query: string) {
-    this.showMenu = this.renderingMenu.filter(item => item.partOfMenu === query);
+    this.showMenu = this.allMenu.filter(item => item.partOfMenu === query);
     this.checkedPartOfMenu = query;
-   
+  }
+
+  changeDay(day: string){
+    this.showMenu = this.allMenu.filter(item => item.dayOfWeek === day);
+    this.checkedDay = day;
+
   }
 
   deleteItem(id: string) {

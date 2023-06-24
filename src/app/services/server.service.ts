@@ -17,10 +17,6 @@ export class ServerService {
   }
 
   getItem(): Observable<any>{
-    // return this.httpClient.get(this.path).pipe(
-    //   map(item => Object.values(item)),
-    //   map(i =>Object.values(i)),
-    // )
     return this.httpClient.get(this.path)
   }
 
