@@ -34,7 +34,6 @@ export class AdminComponent implements OnInit {
       dayOfWeek: menu.value.dayOfWeek,
       price: menu.value.price,
       idNumber: menu.value.idNumber,
-      // id: string,
       partOfMenu: menu.value.partOfMenu,
     }
 

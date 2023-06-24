@@ -1,13 +1,13 @@
 <div class="wrapper">
     <div class="sidenav">
-        <button (click)="changePartOfMenu('lunch')" [class.active_button]="currentPartOfMenu == 'lunch'">Комплексні
-            обіди</button>
-        <button (click)="changePartOfMenu('set')" [class.active_button]="currentPartOfMenu == 'set'">М'ясні
-            сети</button>
-        <button (click)="changePartOfMenu('dessert')"
-            [class.active_button]="currentPartOfMenu == 'dessert'">Десерти</button>
-        <button (click)="changePartOfMenu('buffet')"
-            [class.active_button]="currentPartOfMenu == 'buffet'">Фуршет</button>
+        <button (click)="changePartOfMenu('lunch')" [class.active_button]="currentPartOfMenu == 'lunch'">
+            Комплексні обіди</button>
+        <button (click)="changePartOfMenu('set')" [class.active_button]="currentPartOfMenu == 'set'">
+            М'яснісети</button>
+        <button (click)="changePartOfMenu('dessert')" [class.active_button]="currentPartOfMenu == 'dessert'">
+            Десерти</button>
+        <button (click)="changePartOfMenu('buffet')" [class.active_button]="currentPartOfMenu == 'buffet'">
+            Фуршет</button>
     </div>
     <div class="rendering">
         <div *ngIf="currentPartOfMenu === 'lunch'">
@@ -27,7 +27,6 @@
             </main>
             <section>
                 <div class="cart" *ngFor="let item of renderingMenu">
-
                     <div class="info">
                         <div class="card_header">
                             <h1 class="item_idNumber">Комплекс # {{item.idNumber}}</h1>
@@ -42,8 +41,6 @@
                             <p class="item_name">{{item.dish6}}</p>
                         </div>
                     </div>
-
-
                     <img class="item_image" src="assets/img/IMG_5153.jpg" alt="potato">
                 </div>
             </section>
