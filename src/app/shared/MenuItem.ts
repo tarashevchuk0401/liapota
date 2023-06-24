@@ -4,6 +4,7 @@ export interface MenuItem {
     img?: string,
     price: number,
     idNumber: number,
+    id?: string,
     dish1: string,
     dish2?: string,
     dish3?: string,
