@@ -3,6 +3,7 @@ import { NgForm } from '@angular/forms';
 import { MenuItem } from '../shared/MenuItem';
 import { ServerService } from '../services/server.service';
 import { map } from 'rxjs';
+import { AngularFireStorage } from '@angular/fire/compat/storage';
 
 @Component({
   selector: 'app-admin',
@@ -16,7 +17,12 @@ export class AdminComponent implements OnInit {
   checkedPartOfMenu: string = '';
   checkedDay: string = '';
 
-  constructor(private server: ServerService) { }
+  /// Image variables 
+  path: string = '';
+  name: string = '';
+  urlOfImage: string = '';
+
+  constructor(private server: ServerService, private angularFireStoreg : AngularFireStorage) { }
 
   ngOnInit(): void {
     this.getAllItems();
@@ -35,6 +41,7 @@ export class AdminComponent implements OnInit {
       price: menu.value.price,
       idNumber: menu.value.idNumber,
       partOfMenu: menu.value.partOfMenu,
+      urlOfImage : ''
     }
 
     if (menu.valid) {
@@ -77,5 +84,26 @@ export class AdminComponent implements OnInit {
 
     })
   }
+
+  ///// UPLOADING IMAGE
+
+  upload($event: any) {
+    this.path = $event.target.files[0]
+    this.name = $event.target.files[0].name
+  }
+
+  async uploadImage(myId:  string) {
+    console.log(this.path);
+   const uploadTask = await this.angularFireStoreg.upload( myId , this.path );
+   const url = await uploadTask.ref.getDownloadURL();
+   this.urlOfImage = await url;
+   await console.log(this.urlOfImage);
+   await this.server.addUrlOfImage(myId, this.urlOfImage ).subscribe(d => window.location.reload())
+
+  }
+
+  ///// add url of image
+
+  
 
 }

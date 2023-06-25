@@ -56,6 +56,16 @@ section{
 }
 
 .item_id{
-    font-size: .8rem
-    ;
+    font-size: .8rem;
+}
+
+.image_input{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.input_button{
+    border-radius: .5rem;
+    
 }

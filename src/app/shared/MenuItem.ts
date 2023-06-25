@@ -1,7 +1,7 @@
 export interface MenuItem {
     dayOfWeek : string,
     partOfMenu? : string,
-    img?: string,
+    urlOfImage?: string,
     price: number,
     idNumber: number,
     id?: string,

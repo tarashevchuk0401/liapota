@@ -100,12 +100,17 @@
                     <p class="item_id"> Код: {{item.id}}</p>
                 </div>
             </div>
+            <div class="image_input">
+                <mat-label>Додати Зображення</mat-label>
+                <input class="input_button" type="file" (change)="upload($event)" #img accept=".jpg, .jpeg, .png, .webp">
+                <button *ngIf="img.value" (click)="uploadImage(item.id!)">Додати</button>
+            </div>
             <button (click)="deleteItem(item.id!)">
                 <mat-icon>
                     delete
                 </mat-icon>
             </button>
-            <!-- <img class="item_image" src="assets/img/IMG_5153.jpg" alt="potato" width="55px"> -->
+            
         </div>
     </section>
 </main>
