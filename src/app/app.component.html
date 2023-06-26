@@ -3,5 +3,13 @@
     <section>
         <router-outlet></router-outlet>
     </section>
+    <div  class="viber" *ngIf="viberIconToogle">
+        <button (click)="closeViberIcon()" id="viber_close" class="viber_close">
+            <mat-icon>
+                close
+            </mat-icon>
+        </button>
+        <img id="viber_icon" class="viber_icon" src="assets/logo/viber_big.png" alt="viber">
+    </div>
 </main>
 <app-footer></app-footer>
