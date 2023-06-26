@@ -1,5 +1,8 @@
 {
   "projects": {
-    "default": "lapota-te-ua"
-  }
+    "default": "lapotaua",
+    "LapotaUa": "lapotaua"
+  },
+  "targets": {},
+  "etags": {}
 }

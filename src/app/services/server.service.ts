@@ -32,6 +32,14 @@ export class ServerService {
     return this.httpClient.patch('https://lapotaua-default-rtdb.europe-west1.firebasedatabase.app/menu/' + id + '.json', {urlOfImage : urlOfImage })
   }
 
+  changeWeekNumber(numberOfWeek: string){
+    return this.httpClient.patch('https://lapotaua-default-rtdb.europe-west1.firebasedatabase.app/currentNumberOfWeek.json', {numberOfWeek : numberOfWeek })
+  }
+
+  getCurrentNumberOfWeek(){
+    return this.httpClient.get('https://lapotaua-default-rtdb.europe-west1.firebasedatabase.app/currentNumberOfWeek.json')
+
+  }
 
 
 }

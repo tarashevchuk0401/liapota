@@ -23,6 +23,7 @@ import { AngularFireStorageModule } from '@angular/fire/compat/storage';
 import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
 import { AngularFireDatabaseModule } from '@angular/fire/compat/database';
 import { environment } from 'src/environments.ts/environment';
+import { Subject } from 'rxjs';
 
 
 @NgModule({
@@ -51,7 +52,7 @@ import { environment } from 'src/environments.ts/environment';
     AngularFireStorageModule,
     AngularFireDatabaseModule,
   ],
-  providers: [ServerService],
+  providers: [ServerService, Subject],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

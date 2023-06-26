@@ -2,8 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { MenuItem } from '../shared/MenuItem';
 import { ServerService } from '../services/server.service';
-import { map } from 'rxjs';
+import { BehaviorSubject, Subject, map } from 'rxjs';
 import { AngularFireStorage } from '@angular/fire/compat/storage';
+// import { SubjectService } from '../services/subject.service';
 
 @Component({
   selector: 'app-admin',
@@ -16,6 +17,10 @@ export class AdminComponent implements OnInit {
   showMenu: MenuItem[] = [];
   checkedPartOfMenu: string = '';
   checkedDay: string = '';
+  checkedNumberOfWeek: string = '1';
+  all: string = 'all'
+
+  labelPosition : string = '';
 
   /// Image variables 
   path: string = '';
@@ -28,7 +33,6 @@ export class AdminComponent implements OnInit {
     this.getAllItems();
   }
 
-
   submitReset(menu: NgForm) {
     let item: MenuItem = {
       dish1: menu.value.dish1,
@@ -37,11 +41,14 @@ export class AdminComponent implements OnInit {
       dish4: menu.value.dish4,
       dish5: menu.value.dish5,
       dish6: menu.value.dish6,
-      dayOfWeek: menu.value.dayOfWeek,
+      dayOfWeek: menu.value.dayOfWeek ,
+      numberOfWeek : menu.value.numberOfWeek  ,
       price: menu.value.price,
       idNumber: menu.value.idNumber,
       partOfMenu: menu.value.partOfMenu,
-      urlOfImage : ''
+      urlOfImage : '',
+      note : menu.value.note,
+      weight : menu.value.weight,
     }
 
     if (menu.valid) {
@@ -64,7 +71,7 @@ export class AdminComponent implements OnInit {
         }
         return post
       })).subscribe(data => {
-        this.allMenu = data;
+        this.allMenu = data
       })
   }
 
@@ -81,7 +88,7 @@ export class AdminComponent implements OnInit {
 
   deleteItem(id: string) {
     this.server.deleteItem(id).subscribe(d => {
-
+      
     })
   }
 
@@ -104,6 +111,18 @@ export class AdminComponent implements OnInit {
 
   ///// add url of image
 
+  
+  submitNumberOfWeek(){
+    if(confirm('Ви впевнені бажаєте змінити меню на тиждень номер ' + this.labelPosition )){
+      console.log(this.labelPosition);
+      this.server.changeWeekNumber(this.labelPosition).subscribe()
+    } 
+  }
+
+  displayWeek(numberOfWeek: string){
+    this.checkedNumberOfWeek = numberOfWeek;
+    this.showMenu = this.allMenu.filter(item => item.numberOfWeek === numberOfWeek)
+  }
   
 
 }
