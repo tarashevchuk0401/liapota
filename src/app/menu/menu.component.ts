@@ -1,7 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, SimpleChanges } from '@angular/core';
 import { ServerService } from '../services/server.service';
 import { MenuItem } from '../shared/MenuItem';
-import { map } from 'rxjs';
+import { debounceTime, map } from 'rxjs';
 import { MatDialog } from '@angular/material/dialog';
 
 @Component({
@@ -18,33 +18,49 @@ export class MenuComponent implements OnInit {
   dayNumberToday: number | undefined;
   checkDay: number | undefined;
   currentPartOfMenu: string = 'lunch';
+  currentNumberOfWeek: string = '1';
 
 
 
   constructor(private serverService: ServerService) { }
 
+
+ 
   ngOnInit(): void {
     this.getDayOfWeek();
     this.checkDay = this.dayNumberToday;
-
+    
+    this.getNumberOfWeek();
     this.getAllItems();
   }
 
   getAllItems() {
     this.serverService.getItem().pipe(
-     map(response => {
-      let post = [];
-      for (const key in response) {
-        if (response.hasOwnProperty(key)) {
-          post.push({ ...response[key], id: key });
+      //debounce time used for let initialized this.currentNuberOfWeek
+      debounceTime(10),
+      map(response => {
+        let post = [];
+        for (const key in response) {
+          if (response.hasOwnProperty(key)) {
+            post.push({ ...response[key], id: key });
+          }
         }
-      }
-      return post
-    }))
-    .subscribe((data: any) => {
-      this.allMenu = data;
-      this.renderingMenu = this.allMenu.filter(item => item.dayOfWeek === this.dayNumberToday?.toString())
-    });
+        return post
+      }))
+      .subscribe((data: any) => {
+        this.allMenu = data;
+        this.renderingMenu = this.allMenu.filter(item => item.dayOfWeek === this.dayNumberToday?.toString() || item.dayOfWeek === 'all')
+        .filter(item => item.numberOfWeek === this.currentNumberOfWeek ||  item.numberOfWeek === 'all')
+      });
+  }
+
+  getNumberOfWeek() {
+    this.serverService.getCurrentNumberOfWeek().pipe(
+      map(item => Object.values(item).toString())
+    ).subscribe(d => {
+      this.currentNumberOfWeek = d;
+      console.log('Тиждень : ' + d)
+    })
   }
 
   getDayOfWeek() {
@@ -55,11 +71,13 @@ export class MenuComponent implements OnInit {
 
   changePartOfMenu(newPart: string) {
     this.currentPartOfMenu = newPart;
-    this.renderingMenu = this.allMenu.filter(item => item.partOfMenu === newPart);
+    this.renderingMenu = this.allMenu.filter(item => item.partOfMenu === newPart)
+    .filter(item => item.numberOfWeek === this.currentNumberOfWeek ||  item.numberOfWeek === 'all');
   }
 
   changeDay(day: string) {
-    this.renderingMenu = this.allMenu.filter(item => item.dayOfWeek === day);
+    this.renderingMenu = this.allMenu.filter(item => item.dayOfWeek === day || item.dayOfWeek === 'all')
+    .filter(item => item.numberOfWeek === this.currentNumberOfWeek ||  item.numberOfWeek === 'all');
     this.checkDay = +day;
   }
 

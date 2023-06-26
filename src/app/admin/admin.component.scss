@@ -56,6 +56,31 @@ section{
 }
 
 .item_id{
-    font-size: .8rem
-    ;
+    font-size: .8rem;
+}
+
+.image_input{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.input_button{
+    border-radius: .5rem;
+    
+}
+
+.additional_inputs{
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+}
+
+.change_week{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-top: 0.5rem;
+    font-size: 1.2rem;
+    font-family: $font_nutino;
 }

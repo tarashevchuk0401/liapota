@@ -17,6 +17,14 @@ import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { DeliveryComponent } from './delivery/delivery.component';
 import { DiscountComponent } from './discount/discount.component';
+import { AngularFireModule } from '@angular/fire/compat';
+import { AngularFireAuthModule } from '@angular/fire/compat/auth';
+import { AngularFireStorageModule } from '@angular/fire/compat/storage';
+import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
+import { AngularFireDatabaseModule } from '@angular/fire/compat/database';
+import { environment } from 'src/environments.ts/environment';
+import { Subject } from 'rxjs';
+
 
 @NgModule({
   declarations: [
@@ -37,9 +45,14 @@ import { DiscountComponent } from './discount/discount.component';
     BrowserAnimationsModule, 
     MaterialsModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    AngularFireModule.initializeApp(environment.firebase),
+    AngularFireAuthModule,
+    AngularFirestoreModule,
+    AngularFireStorageModule,
+    AngularFireDatabaseModule,
   ],
-  providers: [ServerService],
+  providers: [ServerService, Subject],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

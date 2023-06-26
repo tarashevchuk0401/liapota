@@ -1,7 +1,8 @@
 export interface MenuItem {
-    dayOfWeek : string,
+    dayOfWeek? : string,
+    numberOfWeek? : string,
     partOfMenu? : string,
-    img?: string,
+    urlOfImage?: string,
     price: number,
     idNumber: number,
     id?: string,
@@ -11,6 +12,8 @@ export interface MenuItem {
     dish4?: string,
     dish5?: string,
     dish6?: string,
+    note? : string
+    weight? : number,
 }
 
 //pertofMenu make required

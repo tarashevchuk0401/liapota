@@ -3,7 +3,7 @@
         <button (click)="changePartOfMenu('lunch')" [class.active_button]="currentPartOfMenu == 'lunch'">
             Комплексні обіди</button>
         <button (click)="changePartOfMenu('set')" [class.active_button]="currentPartOfMenu == 'set'">
-            М'яснісети</button>
+            М'ясні сети</button>
         <button (click)="changePartOfMenu('dessert')" [class.active_button]="currentPartOfMenu == 'dessert'">
             Десерти</button>
         <button (click)="changePartOfMenu('buffet')" [class.active_button]="currentPartOfMenu == 'buffet'">
@@ -41,7 +41,7 @@
                             <p class="item_name">{{item.dish6}}</p>
                         </div>
                     </div>
-                    <img class="item_image" src="assets/img/IMG_5153.jpg" alt="potato">
+                    <img class="item_image"  src={{item.urlOfImage}} alt="menuItemImage">
                 </div>
             </section>
         </div>
@@ -62,7 +62,7 @@
                         </div>
                         <p class="item_price">{{item.price}} грн</p>
                     </div>
-                    <img class="item_image" src="assets/img/IMG_5153.jpg" alt="potato">
+                    <img class="item_image"  src={{item.urlOfImage}} alt="menuItemImage">
                 </div>
             </section>
         </div>
@@ -83,7 +83,7 @@
                         </div>
                         <p class="item_price">{{item.price}} грн</p>
                     </div>
-                    <img class="item_image" src="assets/img/IMG_5153.jpg" alt="potato">
+                    <img class="item_image"  src={{item.urlOfImage}} alt="menuItemImage">
                 </div>
             </section>
         </div>
@@ -104,7 +104,7 @@
                         </div>
                         <p class="item_price">{{item.price}} грн</p>
                     </div>
-                    <img class="item_image" src="assets/img/IMG_5153.jpg" alt="potato">
+                    <img class="item_image"  src={{item.urlOfImage}} alt="menuItemImage">
                 </div>
             </section>
         </div>
