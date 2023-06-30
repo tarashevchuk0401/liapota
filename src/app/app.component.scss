@@ -23,8 +23,6 @@ app-footer {}
     animation-name: viber;
     animation-duration: 1500ms;
     animation-timing-function: ease-out;
-    // animation-delay: 1000ms;
-    
 
     &:hover {
         opacity: 1;
@@ -43,15 +41,3 @@ app-footer {}
     }
 }
 
-////// ANIMATIONS
-
-@keyframes viber {
-    0% {
-        opacity: 0;
-        transform: translateX(3000px);
-    }
-
-    100% {
-        opacity: 1;
-    }
-}
