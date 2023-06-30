@@ -24,6 +24,11 @@ import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
 import { AngularFireDatabaseModule } from '@angular/fire/compat/database';
 import { environment } from 'src/environments.ts/environment';
 import { Subject } from 'rxjs';
+import { AuthorizationComponent } from './authorization/authorization.component';
+import { AuthService } from './services/auth.service';
+import { SignUpComponent } from './authorization/sign-up/sign-up.component';
+
+
 
 
 @NgModule({
@@ -37,7 +42,9 @@ import { Subject } from 'rxjs';
     ContactComponent,
     AboutUsComponent,
     DeliveryComponent,
-    DiscountComponent
+    DiscountComponent,
+    AuthorizationComponent,
+    SignUpComponent
   ],
   imports: [
     BrowserModule,
@@ -52,7 +59,7 @@ import { Subject } from 'rxjs';
     AngularFireStorageModule,
     AngularFireDatabaseModule,
   ],
-  providers: [ServerService, Subject],
+  providers: [ServerService, Subject, AuthService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

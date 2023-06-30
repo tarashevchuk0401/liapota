@@ -8,6 +8,8 @@ import { AppComponent } from './app.component';
 import { AdminComponent } from './admin/admin.component';
 import { DeliveryComponent } from './delivery/delivery.component';
 import { DiscountComponent } from './discount/discount.component';
+import { AuthorizationComponent } from './authorization/authorization.component';
+import { SignUpComponent } from './authorization/sign-up/sign-up.component';
 
 const routes: Routes = [ 
   {path: '', component: MenuComponent},
@@ -18,6 +20,8 @@ const routes: Routes = [
   {path: 'admin', component: AdminComponent},
   {path: 'delivery', component: DeliveryComponent},
   {path: 'discount', component: DiscountComponent},
+  {path: 'authorization', component: AuthorizationComponent},
+  {path: 'sign-up', component: SignUpComponent},
 ];
 
 @NgModule({
