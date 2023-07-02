@@ -27,6 +27,7 @@ import { Subject } from 'rxjs';
 import { AuthorizationComponent } from './authorization/authorization.component';
 import { AuthService } from './services/auth.service';
 import { SignUpComponent } from './authorization/sign-up/sign-up.component';
+import { CartComponent } from './cart/cart.component';
 
 
 
@@ -44,12 +45,13 @@ import { SignUpComponent } from './authorization/sign-up/sign-up.component';
     DeliveryComponent,
     DiscountComponent,
     AuthorizationComponent,
-    SignUpComponent
+    SignUpComponent,
+    CartComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    BrowserAnimationsModule, 
+    BrowserAnimationsModule,
     MaterialsModule,
     FormsModule,
     HttpClientModule,

@@ -85,4 +85,8 @@ export class MenuComponent implements OnInit {
     this.checkDay = +day;
   }
 
+  addToCart(id: string) {
+    this.serverService.addToCart(id).subscribe()
+  }
+
 }

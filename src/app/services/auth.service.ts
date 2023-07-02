@@ -25,8 +25,10 @@ export class AuthService {
         this.afAuth.authState.subscribe((user) => {
             if (user) {
                 this.userData = user;
+                sessionStorage.setItem('id', user.uid)
                 localStorage.setItem('user', JSON.stringify(this.userData));
                 JSON.parse(localStorage.getItem('user')!);
+                
             } else {
                 localStorage.setItem('user', 'null');
                 JSON.parse(localStorage.getItem('user')!);
@@ -40,7 +42,7 @@ export class AuthService {
             .signInWithEmailAndPassword(email, password)
             .then((result) => {
                 this.SetUserData(result.user);
-                console.log(result.user)
+                // console.log(result.user)
                 this.afAuth.authState.subscribe((user) => {
                     if (user) {
                         console.log(user)
@@ -62,6 +64,8 @@ export class AuthService {
                 up and returns promise */
                 // this.SendVerificationMail();
                 this.SetUserData(result.user);
+                console.log(result.user?.uid)
+
             })
             .catch((error) => {
                 window.alert(error.message);

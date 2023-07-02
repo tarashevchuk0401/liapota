@@ -17,7 +17,7 @@ export class ServerService {
   }
 
   getItem(): Observable<any>{
-    return this.httpClient.get(this.path).pipe(tap(d => console.log(d)))
+    return this.httpClient.get(this.path)
   }
 
   
@@ -40,6 +40,24 @@ export class ServerService {
     return this.httpClient.get('https://lapotaua-default-rtdb.europe-west1.firebasedatabase.app/currentNumberOfWeek.json')
 
   }
+
+  setNewUser(email: string, password: string){
+    return this.httpClient.post('https://lapotaua-default-rtdb.europe-west1.firebasedatabase.app/users/' + sessionStorage.getItem('id') + '.json', {email: email, password: password, id: sessionStorage.getItem('id')})
+  }
+
+  getUser(){
+    return this.httpClient.get('https://lapotaua-default-rtdb.europe-west1.firebasedatabase.app/users/' + sessionStorage.getItem('id') + '.json')
+  }
+
+  addToCart(id: string){
+    return this.httpClient.post('https://lapotaua-default-rtdb.europe-west1.firebasedatabase.app/users/' + sessionStorage.getItem('id') + '/cart' +'.json', {id : id})
+
+  }
+
+  getFromCart(){
+    return this.httpClient.get('https://lapotaua-default-rtdb.europe-west1.firebasedatabase.app/users/' + sessionStorage.getItem('id') + '/cart' +'.json')
+  }
+
 
 
 }

@@ -10,6 +10,7 @@ import { DeliveryComponent } from './delivery/delivery.component';
 import { DiscountComponent } from './discount/discount.component';
 import { AuthorizationComponent } from './authorization/authorization.component';
 import { SignUpComponent } from './authorization/sign-up/sign-up.component';
+import { CartComponent } from './cart/cart.component';
 
 const routes: Routes = [ 
   {path: '', component: MenuComponent},
@@ -22,6 +23,7 @@ const routes: Routes = [
   {path: 'discount', component: DiscountComponent},
   {path: 'authorization', component: AuthorizationComponent},
   {path: 'sign-up', component: SignUpComponent},
+  {path: 'cart', component: CartComponent},
 ];
 
 @NgModule({
