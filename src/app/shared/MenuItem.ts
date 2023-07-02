@@ -12,6 +12,10 @@ export interface MenuItem {
     dish4?: string,
     dish5?: string,
     dish6?: string,
+    dish7?: string,
+    dish8?: string,
+    dish9?: string,
+    dish10?: string,
     note? : string
     weight? : number,
 }
