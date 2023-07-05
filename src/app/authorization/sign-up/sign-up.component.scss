@@ -1,0 +1,19 @@
+@import '/src/styles.scss';
+
+
+form{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.auth_input{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 30%;
+}
+
+button {
+    @include button1
+}

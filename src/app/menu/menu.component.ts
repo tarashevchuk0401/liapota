@@ -24,8 +24,6 @@ export class MenuComponent implements OnInit {
 
   constructor(private serverService: ServerService) { }
 
-
-
   ngOnInit(): void {
     this.getDayOfWeek();
     this.checkDay = this.dayNumberToday;
@@ -39,19 +37,18 @@ export class MenuComponent implements OnInit {
       //debounce time used for let initialized this.currentNuberOfWeek
       debounceTime(10),
       map(response => {
-        let post = [];
+        let post: any[] = [];
         for (const key in response) {
           if (response.hasOwnProperty(key)) {
             post.push({ ...response[key], id: key });
           }
         }
-        return post
+        return post;
       }))
       .subscribe((data: any) => {
         this.allMenu = data;
         this.renderingMenu = this.allMenu.filter(item => item.dayOfWeek === this.dayNumberToday?.toString() || item.dayOfWeek === 'all')
-          .filter(item => item.numberOfWeek === this.currentNumberOfWeek || item.numberOfWeek === 'all').sort((a, b) => a.idNumber - b.idNumber)
-
+          .filter(item => item.numberOfWeek === this.currentNumberOfWeek || item.numberOfWeek === 'all').sort((a, b) => a.idNumber - b.idNumber);
       });
   }
 
@@ -60,7 +57,8 @@ export class MenuComponent implements OnInit {
       map(item => Object.values(item).toString())
     ).subscribe(d => {
       this.currentNumberOfWeek = d;
-      console.log('Тиждень : ' + d)
+      console.log('Тиждень : ' + d);
+      
     })
   }
 
@@ -85,8 +83,10 @@ export class MenuComponent implements OnInit {
     this.checkDay = +day;
   }
 
-  addToCart(id: string) {
-    this.serverService.addToCart(id).subscribe()
+  addToCart(id: string, quantity: number) {
+    if(quantity > 0){
+      this.serverService.addToCart(id, quantity).subscribe();
+    }
   }
 
 }

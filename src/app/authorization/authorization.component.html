@@ -1,50 +1,25 @@
-<div class="displayTable">
-    <div class="displayTableCell">
-  
-      <div class="authBlock">
-        <h3>Sign In</h3>
-        <div class="formGroup">
-          <input type="text" class="formControl" placeholder="Username" #userName required>
+<div class="wrapper">
+    <form (ngSubmit)="submit(logInForm)" #logInForm="ngForm">
+        <h1>Увійти</h1>
+        <div class="auth_input">
+            <mat-form-field>
+                <label>Електронна пошта</label>
+                <input matInput type="email" ngModel name="email" required email #email="ngModel">
+            </mat-form-field>
+            <div *ngIf="email.touched && !email.valid">
+                <div class="error_form">Введіть електронну пошту</div>
+            </div>
+            <mat-form-field>
+                <label>Пароль</label>
+                <input matInput type="text" name="password" #password="ngModel" ngModel required #logInForm>
+            </mat-form-field>
+            <div *ngIf="password.touched && !password.valid">
+                <div class="error_form">Введіть пароль</div>
+            </div>
+            <div *ngIf="error" class="error_form">{{error}}</div>
         </div>
-  
-        <div class="formGroup">
-          <input type="password" class="formControl" placeholder="Password" #userPassword required>
-        </div>
-  
-        <!-- Calling SignIn Api from AuthService -->
-        <div class="formGroup">
-         
-            <input type="button" class="btn btnPrimary" value="Log in" (click)="signIn(userName.value, userPassword.value)">
-            <!-- <input type="button" class="btn btnPrimary" value="Sign Up" (click)="signUp(userName.value, userPassword.value)"> -->
-            <button  (click)="goToSignUp()">SignUp</button>
-        </div>
-        <!-- <router-outlet></router-outlet> -->
-  
-        <div class="formGroup">
-          <span class="or"><span class="orInner">Or</span></span>
-        </div>
-  
-        <!-- Calling GoogleAuth Api from AuthService -->
-        <!-- <div class="formGroup">
-          <button type="button" class="btn googleBtn" (click)="authService.GoogleAuth()">
-            <i class="fab fa-google-plus-g"></i>
-            Log in with Google
-          </button>
-        </div> -->
-  
-        <div class="forgotPassword">
-          <span routerLink="/forgot-password">Forgot Password?</span>
-        </div>
-      </div>
-  
-      <div class="redirectToLogin">
-        <span>Don't have an account?<span class="redirect" routerLink="/register-user"> Sign Up</span></span>
-      </div>
-  
-    </div>
-  </div>
-
-  <div>
-    <div>CART</div>
-    
-  </div>
+        <button type="submit" (click)="logIn(logInForm.value.email, logInForm.value.password)">Увійти</button>
+        <div>Або якщо у Вас немає облікового запису:</div>
+        <button (click)="goToSignUp()">Зареєструватись</button>
+    </form>
+</div>

@@ -40,7 +40,8 @@
                             <p class="item_name">{{item.dish5}}</p>
                             <p class="item_name">{{item.dish6}}</p>
                         </div>
-                        <button (click)="addToCart(item.id!)">add</button>
+                        <input type="number" #quantity value="1" placeholder="1" ngModel="1" min="0">
+                        <button (click)="addToCart(item.id!, +quantity.value)">add {{item.price * (+quantity.value)}} грн</button>
                     </div>
                     <img class="item_image" src={{item.urlOfImage}} alt="menuItemImage">
                 </div>

@@ -8,6 +8,7 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { MatTableModule } from '@angular/material/table';
 import {MatCheckboxModule} from '@angular/material/checkbox';
 import {MatRadioModule} from '@angular/material/radio';
+import {MatSnackBarModule} from '@angular/material/snack-bar';
 
 
 @NgModule({
@@ -19,7 +20,8 @@ import {MatRadioModule} from '@angular/material/radio';
     MatDialogModule,
     MatTableModule,
     MatCheckboxModule,
-    MatRadioModule
+    MatRadioModule,
+    MatSnackBarModule,
   ],
   declarations: [],
   imports: [

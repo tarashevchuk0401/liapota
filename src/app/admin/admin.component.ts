@@ -41,14 +41,17 @@ export class AdminComponent implements OnInit {
       dish4: menu.value.dish4,
       dish5: menu.value.dish5,
       dish6: menu.value.dish6,
-      dayOfWeek: menu.value.dayOfWeek ,
-      numberOfWeek : menu.value.numberOfWeek  ,
+      dayOfWeek: menu.value.dayOfWeek,
+      numberOfWeek: menu.value.numberOfWeek,
       price: menu.value.price,
       idNumber: menu.value.idNumber,
       partOfMenu: menu.value.partOfMenu,
-      urlOfImage : '',
-      note : menu.value.note,
-      weight : menu.value.weight,
+      urlOfImage: '',
+      note: menu.value.note,
+      weight: menu.value.weight,
+      quantity: '',
+      id: '',
+      
     }
 
     if (menu.valid) {
@@ -87,9 +90,7 @@ export class AdminComponent implements OnInit {
   }
 
   deleteItem(id: string) {
-    this.server.deleteItem(id).subscribe(d => {
-      
-    })
+    this.server.deleteItem(id).subscribe(d => {})
   }
 
   ///// UPLOADING IMAGE

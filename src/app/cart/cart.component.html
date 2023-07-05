@@ -1,7 +1,33 @@
-<div *ngFor="let i of cartArray">
+<!-- <div *ngFor="let i of cartArray">
     <div>id{{i.id}}</div>
     <div>{{i.dish1}}</div>
     <div>{{i.dish2}}</div>
     <div>{{i.price}}</div>
-</div>
+</div> -->
 
+<section>
+    <div class="cart" *ngFor="let item of renderingCart">
+        <div class="info">
+            <div class="card_header">
+                <h1 class="item_idNumber">Комплекс # {{item.idNumber}}</h1>
+                <p class="item_price">{{item.price}} грн</p>
+            </div>
+            <div class="dishes">
+                <p class="item_name">{{item.dish1}}</p>
+                <p class="item_name">{{item.dish2}}</p>
+                <p class="item_name">{{item.dish3}}</p>
+                <p class="item_name">{{item.dish4}}</p>
+                <p class="item_name">{{item.dish5}}</p>
+                <p class="item_name">{{item.dish6}}</p>
+            </div>
+            <div>{{item.quantity}}</div>
+            <button (click)="changeQuantity('+', item.id)">+</button>
+            <button (click)="changeQuantity('-', item.id)">-</button>
+            <button (click)="removeFromCart(item.id!)">Видалити з кошика</button>
+        </div>
+        <img class="item_image" src={{item.urlOfImage}} alt="menuItemImage">
+        <p>{{item.quantity}}</p>
+    </div>
+    <button (click)="removeAllFromCart()">removeAllFromCart</button>
+    <button (click)="getAllItems()">getAll</button>
+</section>
