@@ -12,8 +12,8 @@
             </div>
         </div> -->
         <nav>
-            <button routerLink="menu" routerLinkActive="active_button">МЕНЮ</button>
-            <button routerLink="discount" routerLinkActive="active_button">АКЦІЇ</button>
+            <button routerLink="menu" routerLinkActive="active_button">{{'МЕНЮ' | translate}}</button>
+            <button routerLink="discount" routerLinkActive="active_button" translate>АКЦІЇ</button>
             <button routerLink="delivery" routerLinkActive="active_button">ДОСТАВКА</button>
             <button routerLink="contact" routerLinkActive="active_button">КОНТАКТ</button>
             <button routerLink="about-us" routerLinkActive="active_button">ПРО НАС</button>
@@ -22,6 +22,8 @@
                     settings
                 </mat-icon>
             </button>
+            <button (click)="switchLanguage('en')">EN</button>
+            <button (click)="switchLanguage('ua')">UA</button>
         </nav>
     </header>
 </main>
