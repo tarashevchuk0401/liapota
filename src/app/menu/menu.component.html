@@ -14,7 +14,7 @@
             <main>
                 <nav>
                     <button (click)="changeDay('1')" [class.active_button]="dayNumberToday == 1"
-                        [class.checkDay]="checkDay == 1">Понеділок</button>
+                        [class.checkDay]="checkDay == 1">{{'Понеділок' |translate}}</button>
                     <button (click)="changeDay('2')" [class.active_button]="dayNumberToday == 2"
                         [class.checkDay]="checkDay == 2">Вівторок</button>
                     <button (click)="changeDay('3')" [class.active_button]="dayNumberToday == 3"
@@ -110,3 +110,4 @@
         </div>
     </div>
 </div>
+

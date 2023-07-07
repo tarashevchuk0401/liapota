@@ -126,7 +126,60 @@
         <button (click)="changeDay('4')" [class.active_button]="checkedDay == '4'">Четвер</button>
         <button (click)="changeDay('5')" [class.active_button]="checkedDay == '5'">П'ятниця</button>
     </nav>
-    <section>
+    <section class="section_table">
+        <table>
+            <tr>
+                <th>Тиж</th>
+                <th>№</th>
+                <th>Опис</th>
+                <th>Примітки</th>
+                <th>Вага</th>
+                <th>Фото</th>
+                <th>Ціна</th>
+                <th>Видалити</th>
+            </tr>
+            <tr class="table_row" *ngFor="let item of showMenu">
+                <td>{{item.numberOfWeek}}</td>
+                <td>{{item.idNumber}}</td>
+                <td class="table_dish">
+                    <div> {{item.dish1}}</div>
+                    <div> {{item.dish2}}</div>
+                    <div> {{item.dish3}}</div>
+                    <div> {{item.dish4}}</div>
+                    <div> {{item.dish5}}</div>
+                    <div> {{item.dish6}}</div>
+                    <div> {{item.dish7}}</div>
+                    <div> {{item.dish8}}</div>
+                    <div> {{item.dish9}}</div>
+                    <div> {{item.dish10}}</div>
+                </td>
+                <td>{{item.note}}</td>
+                <td>{{item.weight}}</td>
+                <td>
+                    <img src={{item.urlOfImage}} width="70px" alt="">
+                    <div class="image_input">
+                        <mat-label>Додати Зображення</mat-label>
+                        <input class="input_button" type="file" (change)="upload($event)" #img
+                            accept=".jpg, .jpeg, .png, .webp">
+                        <button *ngIf="img.value" (click)="uploadImage(item.id!)">Додати</button>
+                    </div>
+                </td>
+                <td>{{item.price}} грн </td>
+                <td>
+                    <button (click)="deleteItem(item.id!)"> 
+                        <mat-icon>
+                            delete
+                        </mat-icon>
+                    </button>
+                </td>
+            </tr>
+        </table>
+    </section>
+
+
+
+
+    <!-- <section>
         <div class="cart" *ngFor="let item of showMenu">
             <div class="info">
                 <div class="card_header">
@@ -163,5 +216,5 @@
                 </mat-icon>
             </button>
         </div>
-    </section>
+    </section> -->
 </main>
