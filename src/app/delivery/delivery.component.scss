@@ -1,29 +1,38 @@
 @import '/src/styles.scss';
 
-main {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-.delivery_card {
-    @include card_green;
-    font-size: 2rem;
-    line-height: 1rem;
-    margin: 1rem;
+.wrapper {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    width: 50%;
+}
 
-    h2 {
-        font-size: 3rem;
-        text-align: center;
-        margin: 2rem;
-        font-family: $font_nutino;
-        
-    }
+h1 {
+    margin: 50px auto;
+    text-align: center;
+    font-size: 2rem;
+    font-weight: 600;
+}
 
+p{
+    text-align: center;
+    width: 80%;
+    font-weight: 400;
+    font-size: 1.5rem;
+    line-height: 2rem;
+    margin-top: 2rem;
+}
 
+.container{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: baseline;
+    margin-top: 100px;
+}
+
+.container_section{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }

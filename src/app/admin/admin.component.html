@@ -14,6 +14,7 @@
             <mat-label>Тип меню</mat-label>
             <mat-select ngModel name="partOfMenu" required #partOfMenu>
                 <mat-option value="lunch">Обід</mat-option>
+                <mat-option value="drinks">Напої</mat-option>
                 <mat-option value="dessert">Десерт</mat-option>
                 <mat-option value="set">Мясний сет</mat-option>
                 <mat-option value="buffet">Фуршет</mat-option>
@@ -106,6 +107,8 @@
     <div class="container">
         <button (click)="filterByPartOfMenu('lunch')"
             [class.active_button]="checkedPartOfMenu == 'lunch'">Обіди</button>
+            <button (click)="filterByPartOfMenu('drinks')"
+            [class.active_button]="checkedPartOfMenu == 'buffet'">Напої</button>
         <button (click)="filterByPartOfMenu('set')" [class.active_button]="checkedPartOfMenu == 'set'">Мясні
             сети</button>
         <button (click)="filterByPartOfMenu('dessert')"

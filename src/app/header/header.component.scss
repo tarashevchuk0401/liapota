@@ -3,30 +3,31 @@
 main {
     display: flex;
     justify-content: center;
-    height: 7.5rem;
+    // height: 7.5rem;
     position: relative;
-    background-color: $color_green;
+    border-bottom: 1px solid $color_grey;
+
+    // background-color: $color_green;
 }
 
 header {
     display: flex;
     justify-content: space-around;
+    margin: 0.2rem;
     align-items: cen;
-    flex-grow: 1;
-    width: 98%;
+    width: 90%;
+
 }
 
 nav {
     display: flex;
     flex-grow: 1;
-    width: 20%;
     justify-content: flex-end;
     align-items: center;
-    margin-right: 1rem;
 }
 
 button {
-    @include button1
+    @include buttonGreen;
 }
 
 .active_button {
@@ -34,62 +35,23 @@ button {
     color: $color_pink_light;
 }
 
-.logo_img{
-    width: 100px;
+.logo_img {
+    width: 70px;
+    height: 70px;
+    object-fit: contain;
 }
 
-.logo {
-    display: flex;
-    align-items: center;
-    font-family: $font_nutino;
-    cursor: pointer;
-}
 
-.logo_text {
-    color: $color_white;
-    font-size: 4rem;
-    font-weight: 600;
-    margin-left: .5rem;
-}
 
-.phone {
-    color: $color_white;
-    display: flex;
-    // align-items: end;
-    font-size: 1.5rem;
-    display: flex;
-    justify-content: flex-end;
-    flex-grow: 0;
-    align-items: center;
-}
 
-.phone_number {
-    display: flex;
-    flex-direction: column;
-    flex-grow: 1;
 
-    div {
-        margin-top: 1rem;
-    }
-
-}
-
-.icon_phone {
-    font-size: 3rem;
-    width: 3.5rem;
-    height: 3rem;
-}
-
-.nav_button {
-    @include button1;
-}
 
 /////////////////////////////////////// 
-@media (max-width: 1080px){
+@media (max-width: 1080px) {
     main {
         height: 5rem;
     }
-    
+
     header {
         display: flex;
         justify-content: space-around;
@@ -97,7 +59,7 @@ button {
         width: 90%;
     }
 
-    .logo_img{
+    .logo_img {
         width: 80px;
     }
 
@@ -106,25 +68,25 @@ button {
         font-size: 2.5rem;
         margin-left: .5rem;
     }
-    
+
     .logo {
         display: flex;
         align-items: center;
-    } 
-    
+    }
+
     .phone {
         color: $color_white;
         display: flex;
         font-size: 1.5rem;
     }
-    
+
     .phone_number {
-    
+
         div {
             margin-top: .5rem;
         }
     }
-    
+
     .icon_phone {
         font-size: 2rem;
         width: 2.5rem;
@@ -134,11 +96,11 @@ button {
 
 //////////////////////////////////
 
-@media (max-width: 800px){
+@media (max-width: 800px) {
     main {
         height: 3rem;
     }
-    
+
     header {
         display: flex;
         justify-content: space-around;
@@ -146,7 +108,7 @@ button {
         width: 90%;
     }
 
-    .logo_img{
+    .logo_img {
         width: 47px;
     }
 
@@ -155,26 +117,26 @@ button {
         font-size: 1.5rem;
         margin-left: .4rem;
     }
-    
+
     .logo {
         display: flex;
         align-items: center;
-    } 
-    
+    }
+
     .phone {
         color: $color_white;
         display: flex;
         font-size: 1rem;
         margin-bottom: 3px;
     }
-    
+
     .phone_number {
-    
+
         div {
             margin-top: .5rem;
         }
     }
-    
+
     .icon_phone {
         font-size: 1.2rem;
         width: 1.9rem;
@@ -182,17 +144,18 @@ button {
     }
 }
 
-@media (max-width: 620px){
+@media (max-width: 620px) {
 
-    main{
+    main {
         height: 5rem;
     }
-    header{
+
+    header {
         flex-direction: column;
-        
+
     }
 
-    nav{
+    nav {
         justify-content: center;
     }
 }

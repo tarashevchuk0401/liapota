@@ -5,9 +5,13 @@ main {
     min-height: 100vh;
 }
 
-app-header {}
-
-section {}
+section {
+    display: flex;
+    justify-content: center;
+    div{
+        width: 95%;
+    }
+}
 
 app-footer {}
 
@@ -39,5 +43,15 @@ app-footer {}
     mat-icon {
         color: $color_pink;
     }
+}
+
+@media (max-width: 600px) {
+    
+section {
+   
+    div{
+        width: 99%;
+    }
+}
 }
 

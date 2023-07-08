@@ -72,9 +72,14 @@ export class MenuComponent implements OnInit {
 
   changePartOfMenu(newPart: string) {
     this.currentPartOfMenu = newPart;
+
     this.renderingMenu = this.allMenu.filter(item => item.partOfMenu === newPart)
       .filter(item => item.numberOfWeek === this.currentNumberOfWeek || item.numberOfWeek === 'all')
       .sort((a, b) => a.idNumber - b.idNumber);
+
+    if (newPart == 'lunch') {
+      this.renderingMenu = this.renderingMenu.filter(item => item.dayOfWeek === this.dayNumberToday || item.dayOfWeek === 'all')
+    } else return
   }
 
   changeDay(day: string) {
