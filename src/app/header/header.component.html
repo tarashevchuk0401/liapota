@@ -3,19 +3,35 @@
         <div class="logo">
             <img routerLink="menu" class="logo_img" src="assets/logo/logo_head.png" alt="logo">
         </div>
-        <nav>
+        <nav class="regular_menu">
             <button routerLink="menu">Меню</button>
             <button routerLink="discount">Акції</button>
             <button routerLink="delivery">Доставка</button>
             <button routerLink="contact">Контакти</button>
-            <button routerLink="about-us">Про нас</button> 
+            <button routerLink="about-us">Про нас</button>
             <button routerLink="admin">
                 <mat-icon>
                     settings
                 </mat-icon>
             </button>
-            <!-- <button (click)="switchLanguage('en')">EN</button>
-            <button (click)="switchLanguage('ua')">UA</button> -->
+
+        </nav>
+        <button  (click)="menuToggle()">
+            <img *ngIf="!showMobileMenu" class="burger_img" src="assets/icons/menu.svg" alt="">
+            <img *ngIf="showMobileMenu" class="burger_img" src="assets/icons/close.svg" alt="">
+        </button>
+
+        <nav class="mobile_menu" *ngIf="showMobileMenu">
+            <button (click)="hideMenu()" class="mobile_button" routerLink="menu">Меню</button>
+            <button (click)="hideMenu()" class="mobile_button" routerLink="discount">Акції</button>
+            <button (click)="hideMenu()" class="mobile_button" routerLink="delivery">Доставка</button>
+            <button (click)="hideMenu()" class="mobile_button" routerLink="contact">Контакти</button>
+            <button (click)="hideMenu()" class="mobile_button" routerLink="about-us">Про нас</button>
+            <button (click)="hideMenu()" class="mobile_button" routerLink="admin">
+                <mat-icon>
+                    settings
+                </mat-icon>
+            </button>
         </nav>
     </header>
 </main>

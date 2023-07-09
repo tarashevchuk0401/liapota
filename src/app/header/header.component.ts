@@ -8,6 +8,8 @@ import { TranslateService } from '@ngx-translate/core';
 })
 export class HeaderComponent {
 
+  showMobileMenu: boolean = false;
+
   constructor(private translate: TranslateService) {
     translate.setDefaultLang('ua');
     translate.use('ua');
@@ -16,5 +18,14 @@ export class HeaderComponent {
   switchLanguage(language: string){
     this.translate.use(language)
   }
+
+  menuToggle(){
+    this.showMobileMenu = !this.showMobileMenu;
+  }
+
+  hideMenu(){
+    this.showMobileMenu = false;
+  }
+
 
 }

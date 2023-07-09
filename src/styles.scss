@@ -47,11 +47,13 @@ body {
 
 @mixin button1 {
     font-size: 1.25rem;
+    font-weight: 500;
     padding: 10px 20px;
     background-color: $color_white;
     border: 1px solid $color_pink_strong;
     border-radius: 80px;
     transition: all .2s;
+    margin: 3px;
 
     &:hover {
         background-color: $color_pink_light;
@@ -59,7 +61,7 @@ body {
 
     @media (max-width:1080px) {
         font-size: 1rem;
-    padding: 10px 20px;
+        padding: 10px 20px;
     }
 
     @media (max-width:800px) {}
