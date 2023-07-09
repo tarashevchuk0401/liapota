@@ -8,6 +8,7 @@ import { AppComponent } from './app.component';
 import { AdminComponent } from './admin/admin.component';
 import { DeliveryComponent } from './delivery/delivery.component';
 import { DiscountComponent } from './discount/discount.component';
+import { AdminDiscountComponent } from './admin/admin-discount/admin-discount.component';
 
 const routes: Routes = [ 
   {path: '', component: MenuComponent},
@@ -18,6 +19,7 @@ const routes: Routes = [
   {path: 'admin', component: AdminComponent},
   {path: 'delivery', component: DeliveryComponent},
   {path: 'discount', component: DiscountComponent},
+  {path: 'admin-discount', component: AdminDiscountComponent},
 ];
 
 @NgModule({

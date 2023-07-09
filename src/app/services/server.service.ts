@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { MenuItem } from '../shared/MenuItem';
 import { Observable, map, tap } from 'rxjs';
+import { Discount } from '../shared/Discount';
 
 @Injectable({
   providedIn: 'root'
@@ -38,7 +39,24 @@ export class ServerService {
 
   getCurrentNumberOfWeek(){
     return this.httpClient.get('https://lapotaua-default-rtdb.europe-west1.firebasedatabase.app/currentNumberOfWeek.json')
+  }
 
+  //// adminstration (discounts)
+
+  getAllDiscounts() : Observable<any>{
+    return this.httpClient.get('https://lapotaua-default-rtdb.europe-west1.firebasedatabase.app/administration/discount.json')
+  }
+
+  getTextDiscount(){
+    return this.httpClient.get('https://lapotaua-default-rtdb.europe-west1.firebasedatabase.app/administration/discount.json')
+  }
+
+  changeTextDiscount(newDiscount: Discount, id: string){
+    return this.httpClient.patch('https://lapotaua-default-rtdb.europe-west1.firebasedatabase.app/administration/discount/' + id + '.json', newDiscount)
+  }
+
+  addUrlOfImageDiscount(id: string, urlOfImage: string){
+    return this.httpClient.patch('https://lapotaua-default-rtdb.europe-west1.firebasedatabase.app/administration/discount/' + id + '.json', {urlOfImage : urlOfImage })
   }
 
 

@@ -109,8 +109,6 @@ export class AdminComponent implements OnInit {
 
   }
 
-  ///// add url of image
-
   
   submitNumberOfWeek(){
     if(confirm('Ви впевнені бажаєте змінити меню на тиждень номер ' + this.labelPosition )){

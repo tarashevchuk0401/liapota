@@ -2,18 +2,20 @@
 
 main {
     position: relative;
-    min-height: 100vh;
+    // min-height: 100vh;
+
 }
 
 section {
     display: flex;
     justify-content: center;
-    div{
-        width: 95%;
+    min-height: 100vh;
+
+    div {
+        width: 94%;
     }
 }
 
-app-footer {}
 
 .viber {
     display: flex;
@@ -46,12 +48,11 @@ app-footer {}
 }
 
 @media (max-width: 600px) {
-    
-section {
-   
-    div{
-        width: 99%;
+
+    section {
+
+        div {
+            width: 99%;
+        }
     }
 }
-}
-

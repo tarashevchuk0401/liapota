@@ -1,1 +1,9 @@
-<p>discount works!</p>
+<div class="wrapper">
+    <section class="card" *ngFor="let d of allDiscounts" >
+        <img class="card_img" src={{d.urlOfImage}} alt="discounts.pic">
+        <div class="card_text">
+            <h1>{{d.header}}</h1>
+            <p>{{d.text}}</p>
+        </div>
+    </section>
+</div>
