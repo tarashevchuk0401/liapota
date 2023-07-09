@@ -1,5 +1,55 @@
 @import '/src/styles.scss';
 
+
+.card_about{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+h1{
+    text-align: center;
+}
+
+.about_p{
+    display: flex;
+    align-items: center;
+    font-size: 1.5rem;
+    font-weight: 500;
+    line-height: 1.9rem;
+    margin-left: 20px;
+    text-align: center;
+}
+
+.card_about_img{
+    object-fit: cover;
+    width: 300px;
+    max-height: 572px;
+    flex-grow: 0;
+    border-radius: 25px;
+}
+
+@media (max-width: 800px) {
+    .card_about{
+        flex-direction: column;
+    }
+
+    .card_about_img{
+        width: 300px;
+        height: 300px;
+    }
+}
+
+///Gallery
+
+.gallery_img{
+    object-fit: cover;
+    width: 150px;
+    height: 150px;
+}
+
+///// Discounts
+
 .wrapper{
     display: flex;
     flex-direction: column;

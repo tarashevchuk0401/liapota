@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { MenuItem } from '../shared/MenuItem';
 import { Observable, map, tap } from 'rxjs';
 import { Discount } from '../shared/Discount';
+import { About } from '../shared/About';
 
 @Injectable({
   providedIn: 'root'
@@ -47,16 +48,36 @@ export class ServerService {
     return this.httpClient.get('https://lapotaua-default-rtdb.europe-west1.firebasedatabase.app/administration/discount.json')
   }
 
-  getTextDiscount(){
-    return this.httpClient.get('https://lapotaua-default-rtdb.europe-west1.firebasedatabase.app/administration/discount.json')
-  }
-
   changeTextDiscount(newDiscount: Discount, id: string){
     return this.httpClient.patch('https://lapotaua-default-rtdb.europe-west1.firebasedatabase.app/administration/discount/' + id + '.json', newDiscount)
   }
 
   addUrlOfImageDiscount(id: string, urlOfImage: string){
     return this.httpClient.patch('https://lapotaua-default-rtdb.europe-west1.firebasedatabase.app/administration/discount/' + id + '.json', {urlOfImage : urlOfImage })
+  }
+
+  ///// about-us 
+
+  getAllAbout() : Observable<any>{
+    return this.httpClient.get('https://lapotaua-default-rtdb.europe-west1.firebasedatabase.app/administration/about-us.json');
+  }
+
+  changeTextAbout(newAbout: About, id: string){
+    return this.httpClient.patch('https://lapotaua-default-rtdb.europe-west1.firebasedatabase.app/administration/about-us/' + id + '.json', newAbout);
+  }
+
+  addUrlOfImageAbout(id: string, urlOfImage: string){
+    return this.httpClient.patch('https://lapotaua-default-rtdb.europe-west1.firebasedatabase.app/administration/about-us/' + id + '.json', {urlOfImage : urlOfImage })
+  }
+
+  //// about-us gallery
+
+  getAllAboutGallery() : Observable<any>{
+    return this.httpClient.get('https://lapotaua-default-rtdb.europe-west1.firebasedatabase.app/administration/gallery.json');
+  }
+
+  addUrlOfImageAboutGallery(id: string, urlOfImage: string){
+    return this.httpClient.patch('https://lapotaua-default-rtdb.europe-west1.firebasedatabase.app/administration/gallery/' + id + '.json', {urlOfImage : urlOfImage })
   }
 
 

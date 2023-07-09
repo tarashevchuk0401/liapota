@@ -1,18 +1,14 @@
-<main>
-   <section>
-    <div class="foto_card">
-        <img class="foto_burger" src="assets/img/IMG_2330.jpg" alt="burger" >
-        <div class="about_info">
-            <div>ДОСТАВКА обідів та М'ясних сетів</div>
-            <div>Завжди свіжі страви, приготовані з Любов'ю</div>
-        </div>
+<div class="wrapper">
+    <h1>Про нас </h1>
+    <h2>Вас вітає кафе ЛЯПОТА!</h2>
+    <div class="card_about" *ngFor="let a  of allAbout">
+        <img class="card_about_img" src={{a.urlOfImage}} alt="abot-us_pic">
+        <p>{{a.text}}</p>
     </div>
-    <div class="foto_card">
-        <img class="foto_burger" src="/src/assets/img/IMG_2190.jpg" alt="dessert" >
-        <div class="about_info">
-            <div> Безкоштовна доставка від 300грн</div>
-        </div>
+<div class="gallery_small">
+    <div  *ngFor="let i of allAboutGallery">
+        
+        <img class="gallery_img" src={{i.urlOfImage}} alt="">
     </div>
-   </section>
-
-</main>
+</div>
+</div>

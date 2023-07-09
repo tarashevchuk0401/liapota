@@ -23,7 +23,7 @@ section {
 .contact {
     background-color: $color_green;
     color: $color_white;
-    font-family: $font_nutino;
+    font-family: $font_mulish;
     font-weight: 700;
     font-size: 2rem;
     border-radius: 3rem;
@@ -49,7 +49,7 @@ section {
     align-items: center;
     justify-content: space-between;
     color: $color_white;
-    font-family: $font_nutino;
+    font-family: $font_mulish;
     background-color: $color_green;
     border-radius: 3rem;
     padding: 2rem;
@@ -65,15 +65,12 @@ section {
 .map_iframes {
     display: flex;
     flex-direction: row;
-    // align-items: center;
     justify-content: space-between;
     flex-grow: 1;
     width: 90%;
 }
 
 .map_card{
-    // display: flex;
-    // justify-content: center;
     text-align: center;
     font-size: 2rem;
 }

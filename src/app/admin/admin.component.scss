@@ -41,10 +41,9 @@ section{
     border-radius: 1rem;
     font-size: 1.5rem;
     line-height: 2rem;
-    font-family: $font_nutino;
+    font-family: $font_mulish;
     display: flex;
     flex-direction: column;
-    // flex-grow: 1;
     flex-wrap: wrap;
 }
 
@@ -52,7 +51,6 @@ section{
     display: flex;
     flex-direction: column;
     flex-grow: 1;
-    // justify-content: center;
 }
 
 .item_id{
@@ -82,7 +80,7 @@ section{
     align-items: center;
     margin-top: 0.5rem;
     font-size: 1.2rem;
-    font-family: $font_nutino;
+    font-family: $font_mulish;
 }
 
  /// TABLE 
