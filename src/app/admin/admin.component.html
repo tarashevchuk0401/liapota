@@ -48,14 +48,14 @@
             </mat-select>
         </mat-form-field>
         <mat-form-field>
-            <mat-label>Страва</mat-label>
+            <mat-label>Страва / заголовок</mat-label>
             <input matInput type="text" ngModel name="dish1" required>
         </mat-form-field>
         <mat-form-field>
-            <mat-label>Страва 2</mat-label>
+            <mat-label>Страви</mat-label>
             <input matInput type="text" ngModel name="dish2">
         </mat-form-field>
-        <mat-form-field>
+        <!-- <mat-form-field>
             <mat-label>Страва 3</mat-label>
             <input matInput type="text" ngModel name="dish3" #dish3>
         </mat-form-field>
@@ -88,10 +88,10 @@
                 <mat-label>Страва 10</mat-label>
                 <input matInput type="text" ngModel name="dish10">
             </mat-form-field>
-        </div>
+        </div> -->
         <mat-form-field>
             <mat-label>Примітки</mat-label>
-            <input matInput type="text" ngModel name="note">
+            <input matInput type="text" ngModel name="note" >
         </mat-form-field>
         <mat-form-field>
             <mat-label>Ціна</mat-label>
@@ -150,14 +150,14 @@
                 <td class="table_dish">
                     <div> {{item.dish1}}</div>
                     <div> {{item.dish2}}</div>
-                    <div> {{item.dish3}}</div>
+                    <!-- <div> {{item.dish3}}</div>
                     <div> {{item.dish4}}</div>
                     <div> {{item.dish5}}</div>
                     <div> {{item.dish6}}</div>
                     <div> {{item.dish7}}</div>
                     <div> {{item.dish8}}</div>
                     <div> {{item.dish9}}</div>
-                    <div> {{item.dish10}}</div>
+                    <div> {{item.dish10}}</div> -->
                 </td>
                 <td>{{item.note}}</td>
                 <td>{{item.weight}}</td>
