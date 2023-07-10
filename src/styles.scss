@@ -52,7 +52,7 @@ body {
     background-color: $color_white;
     border: 1px solid $color_pink_strong;
     border-radius: 80px;
-    transition: all .2s;
+    transition: all .3s;
     margin: 3px;
 
     &:hover {
@@ -74,7 +74,7 @@ body {
 @mixin buttonGreen {
     font-size: 1.4rem;
     background-color: $color_white;
-    transition: all .2s;
+    transition: all .3s;
     font-weight: 600;
     line-height: 30px;
 

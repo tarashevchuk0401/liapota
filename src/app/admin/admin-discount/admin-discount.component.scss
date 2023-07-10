@@ -1,5 +1,12 @@
 @import '/src/styles.scss';
 
+.part{
+    background-color: rgb(253, 253, 253);
+    border: 3px solid $color_grey;
+    padding: 15px;
+    border-radius: 2rem;
+    margin: 50px 0;
+}
 
 .card_about{
     display: flex;
@@ -41,6 +48,7 @@ h1{
 }
 
 ///Gallery
+
 
 .gallery_img{
     object-fit: cover;

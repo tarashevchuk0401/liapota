@@ -1,54 +1,59 @@
-<h1>Про нас</h1>
-<div class="wrapper">
-    <section class="card" *ngFor="let d of allAbout">
-        <img class="card_img" src={{d.urlOfImage}} alt="discounts.pic">
-        <div class="card_text">
-            <p>{{d.text}}</p>
-            <mat-form-field>
-                <label for="">Заголовок</label>
-                <input type="text" matInput #header>
-            </mat-form-field>
-            <textarea #text></textarea>
-            <div class="image_input">
-                <mat-label>Додати Зображення</mat-label>
-                <input class="input_button" type="file" (change)="upload($event)" #img
-                    accept=".jpg, .jpeg, .png, .webp">
-                <button *ngIf="img.value" (click)="uploadImageAbout(d.id!)">Додати</button>
+<section class="part">
+    <h1>Про нас</h1>
+    <div class="wrapper">
+        <section class="card" *ngFor="let d of allAbout">
+            <img class="card_img" src={{d.urlOfImage}} alt="discounts.pic">
+            <div class="card_text">
+                <p>{{d.text}}</p>
+                <mat-form-field>
+                    <label for="">Заголовок</label>
+                    <input type="text" matInput #header>
+                </mat-form-field>
+                <textarea #text></textarea>
+                <div class="image_input">
+                    <mat-label>Додати Зображення</mat-label>
+                    <input class="input_button" type="file" (change)="upload($event)" #img
+                        accept=".jpg, .jpeg, .png, .webp">
+                    <button *ngIf="img.value" (click)="uploadImageAbout(d.id!)">Додати</button>
+                </div>
+                <button (click)="changeTextAbout(d.id!, text.value)">Змінити текст 1</button>
             </div>
-            <button (click)="changeTextAbout(d.id!, text.value)">Змінити текст 1</button>
-        </div>
-    </section>
-</div>
-<hr>
-<div class="gallery_small" *ngFor="let i of allAboutGallery">
-    <img class="gallery_img" src={{i.urlOfImage}} alt="">
-    <div class="image_input">
-        <mat-label>Додати Зображення</mat-label>
-        <input class="input_button" type="file" (change)="upload($event)" #img accept=".jpg, .jpeg, .png, .webp">
-        <button *ngIf="img.value" (click)="uploadImageAboutGallery(i.id!)">Додати</button>
+        </section>
     </div>
-</div>
-<hr>
-<hr>
-<h1>Акції</h1>
-<div class="wrapper">
-    <section class="card" *ngFor="let d of allDiscounts">
-        <img class="card_img" src={{d.urlOfImage}} alt="discounts.pic">
-        <div class="card_text">
-            <h1>{{d.header}}</h1>
-            <p>{{d.text}}</p>
-            <mat-form-field>
-                <label for="">Заголовок</label>
-                <input type="text" matInput #header>
-            </mat-form-field>
-            <textarea #text></textarea>
-            <div class="image_input">
-                <mat-label>Додати Зображення</mat-label>
-                <input class="input_button" type="file" (change)="upload($event)" #img
-                    accept=".jpg, .jpeg, .png, .webp">
-                <button *ngIf="img.value" (click)="uploadImageDiscount(d.id!)">Додати</button>
-            </div>
-            <button (click)="changeTextDiscount(d.id!, text.value, header.value)">Змінити текст 1</button>
+    <hr>
+    <h1>Галерея (Про нас)</h1>
+    <div class="gallery_small" *ngFor="let i of allAboutGallery">
+        <img class="gallery_img" src={{i.urlOfImage}} alt="">
+        <div class="image_input">
+            <mat-label>Додати Зображення</mat-label>
+            <input class="input_button" type="file" (change)="upload($event)" #img accept=".jpg, .jpeg, .png, .webp">
+            <button *ngIf="img.value" (click)="uploadImageAboutGallery(i.id!)">Додати</button>
         </div>
-    </section>
-</div>
+    </div>
+</section>
+<hr>
+<hr>
+<section class="part">
+    <h1>Акції</h1>
+    <div class="wrapper">
+        <section class="card" *ngFor="let d of allDiscounts">
+            <img class="card_img" src={{d.urlOfImage}} alt="discounts.pic">
+            <div class="card_text">
+                <h1>{{d.header}}</h1>
+                <p>{{d.text}}</p>
+                <mat-form-field>
+                    <label for="">Заголовок</label>
+                    <input type="text" matInput #header>
+                </mat-form-field>
+                <textarea #text></textarea>
+                <div class="image_input">
+                    <mat-label>Додати Зображення</mat-label>
+                    <input class="input_button" type="file" (change)="upload($event)" #img
+                        accept=".jpg, .jpeg, .png, .webp">
+                    <button *ngIf="img.value" (click)="uploadImageDiscount(d.id!)">Додати</button>
+                </div>
+                <button (click)="changeTextDiscount(d.id!, text.value, header.value)">Змінити текст 1</button>
+            </div>
+        </section>
+    </div>
+</section>

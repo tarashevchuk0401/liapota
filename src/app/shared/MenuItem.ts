@@ -5,6 +5,7 @@ export interface MenuItem {
     urlOfImage?: string,
     price: number,
     idNumber: number,
+    quantity?: string,
     id?: string,
     dish1: string,
     dish2?: string,

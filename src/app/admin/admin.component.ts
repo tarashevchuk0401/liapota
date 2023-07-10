@@ -41,6 +41,7 @@ export class AdminComponent implements OnInit {
       // dish4: menu.value.dish4,
       // dish5: menu.value.dish5,
       // dish6: menu.value.dish6,
+      quantity: '',
       dayOfWeek: menu.value.dayOfWeek ,
       numberOfWeek : menu.value.numberOfWeek  ,
       price: menu.value.price,
