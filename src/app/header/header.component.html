@@ -1,37 +1,31 @@
 <main>
     <header>
         <div class="logo">
-            <img routerLink="menu" class="logo_img" src="assets/logo/logo_head.png" alt="logo">
+            <img routerLink="menu" class="logo_img" src="assets/logo/logo.png" alt="logo">
         </div>
         <nav class="regular_menu">
-            <button routerLink="menu">Меню</button>
-            <button routerLink="discount">Акції</button>
-            <button routerLink="delivery">Доставка</button>
-            <button routerLink="contact">Контакти</button>
-            <button routerLink="about-us">Про нас</button>
-            <button routerLink="admin">
+            <button routerLink="menu" routerLinkActive="header_button_active">Меню</button>
+            <button routerLink="discount" routerLinkActive="header_button_active">Акції</button>
+            <button routerLink="delivery" routerLinkActive="header_button_active">Доставка</button>
+            <button routerLink="contact" routerLinkActive="header_button_active">Контакти</button>
+            <button routerLink="about-us" routerLinkActive="header_button_active">Про нас</button>
+            <button routerLink="admin" routerLinkActive="header_button_active">
                 <mat-icon>
                     settings
                 </mat-icon>
             </button>
 
         </nav>
-        <button  (click)="menuToggle()">
+        <button (click)="menuToggle()">
             <img *ngIf="!showMobileMenu" class="burger_img" src="assets/icons/menu.svg" alt="">
             <img *ngIf="showMobileMenu" class="burger_img" src="assets/icons/close.svg" alt="">
         </button>
-
         <nav class="mobile_menu" *ngIf="showMobileMenu">
             <button (click)="hideMenu()" class="mobile_button" routerLink="menu">Меню</button>
             <button (click)="hideMenu()" class="mobile_button" routerLink="discount">Акції</button>
             <button (click)="hideMenu()" class="mobile_button" routerLink="delivery">Доставка</button>
             <button (click)="hideMenu()" class="mobile_button" routerLink="contact">Контакти</button>
             <button (click)="hideMenu()" class="mobile_button" routerLink="about-us">Про нас</button>
-            <button (click)="hideMenu()" class="mobile_button" routerLink="admin">
-                <mat-icon>
-                    settings
-                </mat-icon>
-            </button>
         </nav>
     </header>
 </main>

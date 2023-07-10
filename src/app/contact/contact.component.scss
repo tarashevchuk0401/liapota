@@ -14,52 +14,77 @@ section {
 
 }
 
-.info {
+aside{
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
+    justify-content: space-around;
+    margin: 60px 0;
+    align-items: flex-start;
+    justify-content: flex-start;
 }
 
-.contact {
-    background-color: $color_green;
-    color: $color_white;
-    font-family: $font_mulish;
-    font-weight: 700;
-    font-size: 2rem;
-    border-radius: 3rem;
-    padding: 2rem;
+.aside_section{
     display: flex;
-    justify-content: center;
-    margin: .5rem;
-    text-align: center;
+    flex-direction: row;
+    margin: 20px 0;
+    
 }
+
+.aside_img{
+    margin: 0 25px;
+}
+
+.aside_h2{
+    font-weight: 600;
+}
+
+// .info {
+//     display: flex;
+//     flex-direction: row;
+//     flex-wrap: wrap;
+// }
+
+// .contact {
+//     background-color: $color_green;
+//     color: $color_white;
+//     font-family: $font_mulish;
+//     font-weight: 700;
+//     font-size: 2rem;
+//     border-radius: 3rem;
+//     padding: 2rem;
+//     display: flex;
+//     justify-content: center;
+//     margin: .5rem;
+//     text-align: center;
+// }
 
 .contact_header {
-    font-size: 3rem;
-    line-height: 4rem;
+    font-size: 2rem;
+    margin: 15px;
 }
 
-.contact_text {
-    font-size: 2rem;
-}
+// .contact_text {
+//     font-size: 2rem;
+// }
 
 .map {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: space-between;
-    color: $color_white;
     font-family: $font_mulish;
-    background-color: $color_green;
-    border-radius: 3rem;
-    padding: 2rem;
-    margin: 0.5rem;
+    // background-color: $color_green;
+    // border-radius: 3rem;
+   
 
 }
 
 .map_addres{
-    font-size: 3rem;
-    margin: 2rem 0;
+    font-size: 2rem;
+    margin: 1rem 0;
+    line-height: 2.5rem;
+
 }
 
 .map_iframes {
@@ -68,21 +93,29 @@ section {
     justify-content: space-between;
     flex-grow: 1;
     width: 90%;
+    border: 2px solid $color_green;
+    border-radius: 20px;
 }
 
 .map_card{
     text-align: center;
     font-size: 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: space-between;
+    justify-content: space-between;
 }
 
 iframe {
     margin: 0.5rem;
     border-radius: 2rem;
-    border: 5px solid $color_white;
+    border: 5px solid $color_green;
     height: 19rem;
     max-width: 80%;
 }
 
-.contact_icon{
-    font-weight: 700;
+@media (max-width: 680px) {
+    iframe{
+        height: 200px;
+    }
 }
