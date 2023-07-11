@@ -154,3 +154,22 @@ h1 {
         opacity: 1;
     }
 }
+
+@keyframes fromleft {
+    0%{
+        display: none;
+        transform: translateX(-2000px);
+        opacity: 0;
+    }
+
+    50%{
+        display: block;
+        opacity: 0.5;
+    }
+
+    100%{
+        transform: translateY(0px);
+        opacity: 1;
+    }
+
+}

@@ -38,9 +38,12 @@ section {
 }
 
 .viber_close {
-    width: 50%;
+    width: 45%;
     background-color: $color_black;
-    border-radius: .5rem;
+    display: flex;
+    justify-content: center;
+    border-radius: 5px;
+    padding: 0px 0px;
 
     mat-icon {
         color: $color_green;
@@ -51,5 +54,6 @@ section {
 
     .viber{
         width: 60px;
-    }
+    } 
 }
+

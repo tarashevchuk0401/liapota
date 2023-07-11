@@ -1,5 +1,9 @@
 @import '/src/styles.scss';
 
+.wrapper{
+    animation: fromleft .5s ease-out;
+}
+
 h1{
     font-size: 2rem;
     font-weight: 600;

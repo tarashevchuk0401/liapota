@@ -4,6 +4,7 @@ main {
     display: flex;
     flex-direction: column;
     justify-content: center;
+    animation: fromleft .5s ease-out;
 }
 
 section {
@@ -39,34 +40,11 @@ aside{
     font-weight: 600;
 }
 
-// .info {
-//     display: flex;
-//     flex-direction: row;
-//     flex-wrap: wrap;
-// }
-
-// .contact {
-//     background-color: $color_green;
-//     color: $color_white;
-//     font-family: $font_mulish;
-//     font-weight: 700;
-//     font-size: 2rem;
-//     border-radius: 3rem;
-//     padding: 2rem;
-//     display: flex;
-//     justify-content: center;
-//     margin: .5rem;
-//     text-align: center;
-// }
-
 .contact_header {
     font-size: 2rem;
     margin: 15px;
 }
 
-// .contact_text {
-//     font-size: 2rem;
-// }
 
 .map {
     display: flex;
@@ -74,9 +52,6 @@ aside{
     align-items: center;
     justify-content: space-between;
     font-family: $font_mulish;
-    // background-color: $color_green;
-    // border-radius: 3rem;
-   
 
 }
 
@@ -84,7 +59,6 @@ aside{
     font-size: 2rem;
     margin: 1rem 0;
     line-height: 2.5rem;
-
 }
 
 .map_iframes {
@@ -95,6 +69,10 @@ aside{
     width: 90%;
     border: 2px solid $color_green;
     border-radius: 20px;
+}
+
+a{
+    color: $color_black;
 }
 
 .map_card{
