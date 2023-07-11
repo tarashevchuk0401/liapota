@@ -51,9 +51,24 @@ aside {
 
 
 .rendering {
+    display: flex;
     width: 100%;
     margin: 0 15px;
+    flex-grow: 1;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 }
+
+.rendering_card {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: stretch;
+    width: 100%;
+    flex-grow: 1;
+}
+
 
 
 .navigation_typeOfMenu {
@@ -71,9 +86,6 @@ nav {
     display: flex;
     justify-content: space-between;
     width: 95%;
-    // margin: 1.5rem 0;
-    // margin-left: -10px;
-    // background-color: aquamarine;
 }
 
 
@@ -85,9 +97,9 @@ nav {
     background-color: rgba($color: #ffffff, $alpha: 0);
     font-size: 1.3rem;
     color: $color_black;
-    transition: all .2s ;
+    transition: all .2s;
 
-    &:hover{
+    &:hover {
         transform: translateY(2px);
     }
 }
@@ -125,12 +137,14 @@ nav {
 
 .card {
     display: flex;
-    border: 1px solid $color_grey;
-    border-radius: 30px;
-    padding: 25px;
+    width: 90%;
+    flex-grow: 1;
     justify-content: space-between;
     align-items: center;
+    padding: 25px;
     margin: 5px 20px;
+    border: 1px solid $color_grey;
+    border-radius: 30px;
     box-shadow: 0px 1px 1px 0px rgba(0, 0, 0, 0.25);
 }
 
@@ -142,6 +156,10 @@ nav {
 }
 
 .card_right {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+
     img {
         object-fit: cover;
         width: 100px;
@@ -153,8 +171,6 @@ nav {
 .card_left_h2 {
     font-size: 2rem;
     font-weight: 400;
-
-
 }
 
 .item_price {
@@ -177,11 +193,11 @@ nav {
 
 @media (max-width: 800px) {
 
-    .wrapper{
+    .wrapper {
         flex-direction: column;
     }
 
-    .sidenav{
+    .sidenav {
         flex-direction: row;
         justify-content: space-between;
         align-items: center;
@@ -193,31 +209,50 @@ nav {
 
     .navigation_typeOfMenu {
         margin-top: 5px;
-        
 
-        h1{
+        h1 {
             font-size: .9rem;
             margin: 0;
             padding: 5px 5px;
             font-weight: 600;
             line-height: 1.2rem;
-        }        
+        }
     }
 
-    .card_left_h2{
+    .card {
+        display: flex;
+        justify-content: space-between;
+        width: 100%;
+        flex-grow: 1;
+        margin: 0;
+        margin-left: -25px;
+        border-radius: 0;
+        border: none;
+        box-shadow: none;
+        border-bottom: 2px solid $color_grey;
+    }
+
+    .card_right{
+        img{
+            width: 70px;
+            height: 70px;
+        }
+    }
+
+    .card_left_h2 {
         font-size: 1.3rem;
     }
 
-    .item_price{
+    .item_price {
         font-size: 1.1rem;
     }
 
-    .card_left_p{
-        font-size:1.1rem;
+    .card_left_p {
+        font-size: 1.1rem;
 
     }
 
-    .button_side{
+    .button_side {
         background-color: $color_white;
         border: 1px solid $color_green;
         border-radius: 20px;
@@ -230,12 +265,12 @@ nav {
         height: 43px;
         font-weight: 600;
         width: 109px;
-    
+
         &:hover {
-            background-color: $color_green;
+            background-color: $color_green_light;
         }
 
-        &::after{
+        &::after {
             width: 0;
         }
     }
@@ -245,21 +280,25 @@ nav {
             content: 'Пн'
         }
     }
+
     .tuesday {
         &::after {
             content: 'Вт'
         }
     }
+
     .wednesday {
         &::after {
             content: 'Ср'
         }
     }
+
     .thursady {
         &::after {
             content: 'Чт'
         }
     }
+
     .friday {
         &::after {
             content: 'Пт'
@@ -268,7 +307,7 @@ nav {
 
 }
 
-@media (min-width: 800px){
+@media (min-width: 800px) {
 
     .monday {
         &::after {
@@ -281,16 +320,19 @@ nav {
             content: 'Вівторок'
         }
     }
+
     .wednesday {
         &::after {
             content: 'Середа'
         }
     }
+
     .thursady {
         &::after {
             content: 'Четвер'
         }
     }
+
     .friday {
         &::after {
             content: "П'ятниця"
