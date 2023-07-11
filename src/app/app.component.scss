@@ -39,20 +39,17 @@ section {
 
 .viber_close {
     width: 50%;
-    background-color: $color_pink_light;
+    background-color: $color_black;
     border-radius: .5rem;
 
     mat-icon {
-        color: $color_pink;
+        color: $color_green;
     }
 }
 
 @media (max-width: 600px) {
 
-    section {
-
-        div {
-            width: 99%;
-        }
+    .viber{
+        width: 60px;
     }
 }

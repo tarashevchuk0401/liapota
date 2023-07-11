@@ -18,15 +18,15 @@ aside{
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-    justify-content: space-around;
     margin: 60px 0;
     align-items: flex-start;
-    justify-content: flex-start;
+    justify-content: center;
 }
 
 .aside_section{
     display: flex;
     flex-direction: row;
+    align-items: center;
     margin: 20px 0;
     
 }
@@ -117,5 +117,9 @@ iframe {
 @media (max-width: 680px) {
     iframe{
         height: 200px;
+    }
+
+    aside{
+        justify-content: flex-start;
     }
 }
