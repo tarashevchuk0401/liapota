@@ -123,10 +123,6 @@ nav {
     margin: 2px;
 }
 
-.active_buttonDay {
-    @include active_button1;
-}
-
 .checkDay {
     background-color: $color_pink_strong;
     pointer-events: none;
@@ -134,11 +130,14 @@ nav {
 
 
 //////  Item of Menu
+/// 
+
+
 
 .card {
     display: flex;
-    width: 90%;
-    flex-grow: 1;
+    flex-direction: row;
+  
     justify-content: space-between;
     align-items: center;
     padding: 25px;

@@ -78,6 +78,7 @@ export class MenuComponent implements OnInit {
       .sort((a, b) => a.idNumber - b.idNumber);
 
     if (newPart == 'lunch') {
+      this.checkDay = this.dayNumberToday;
       this.renderingMenu = this.renderingMenu.filter(item => item.dayOfWeek === this.dayNumberToday || item.dayOfWeek === 'all')
     } else return
   }

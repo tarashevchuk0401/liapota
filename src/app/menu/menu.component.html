@@ -37,7 +37,7 @@
                 </nav>
             </div>
             <section>
-                <div class="card" *ngFor="let item of renderingMenu">
+                <div class="card" *ngFor="let item of renderingMenu" >
                     <div class="card_left">
                         <h2 class="card_left_h2">Комплекс {{item.idNumber}}</h2>
                         <h3 class="item_price">{{item.price}} грн</h3>
@@ -45,13 +45,13 @@
                         <p class="note">{{item.note}}</p>
                     </div>
                     <div class="card_right">
-                        <img src={{item.urlOfImage}} alt="">
-                        <p class="card_left_p">Вага: {{item.weight}} г</p>
+                        <!-- <img src={{item.urlOfImage}} alt="">
+                        <p class="card_left_p">Вага: {{item.weight}} г</p> -->
                     </div>
                 </div>
             </section>
         </div>
-        <div *ngIf="currentPartOfMenu === 'dessert'">
+        <div *ngIf="currentPartOfMenu === 'dessert'" class="rendering_card">
             <div class="navigation_typeOfMenu">
                 <h1>Десерти</h1>
             </div>
@@ -70,7 +70,7 @@
                 </div>
             </section>
         </div>
-        <div *ngIf="currentPartOfMenu === 'drinks'">
+        <div *ngIf="currentPartOfMenu === 'drinks'" class="rendering_card">
             <div class="navigation_typeOfMenu">
                 <h1>Напої</h1>
             </div>
@@ -89,7 +89,7 @@
                 </div>
             </section>
         </div>
-        <div *ngIf="currentPartOfMenu === 'set'">
+        <div *ngIf="currentPartOfMenu === 'set'" class="rendering_card">
             <div class="navigation_typeOfMenu">
                 <h1>М'ясні сети</h1>
             </div>
@@ -108,7 +108,7 @@
                 </div>
             </section>
         </div>
-        <div *ngIf="currentPartOfMenu === 'buffet'">
+        <div *ngIf="currentPartOfMenu === 'buffet'" class="rendering_card">
             <div class="navigation_typeOfMenu">
                 <h1>Фуршет</h1>
             </div>
