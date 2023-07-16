@@ -19,18 +19,9 @@ export class DiscountComponent implements OnInit {
   }
 
   getAllDiscounts() {
-    this.serverService.getAllDiscounts().pipe(
-      map(response => {
-        let post = [];
-        for (const key in response) {
-          if (response.hasOwnProperty(key)) {
-            post.push({ ...response[key], id: key });
-          }
-        }
-        return post
-      })).subscribe(d => {
-        this.allDiscounts = d;
-      })
+    this.serverService.getAllDiscounts().subscribe(d => {
+      this.allDiscounts = d;
+    })
   }
 
 

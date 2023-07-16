@@ -22,31 +22,13 @@ export class AboutUsComponent implements OnInit{
   }
 
   getAllAbout() {
-    this.serverService.getAllAbout().pipe(
-      map(response => {
-        let post = [];
-        for (const key in response) {
-          if (response.hasOwnProperty(key)) {
-            post.push({ ...response[key], id: key });
-          }
-        }
-        return post
-      })).subscribe(d => {
+    this.serverService.getAllAbout().subscribe(d => {
         this.allAbout = d;
       })
   }
 
   getAllAboutGallery() {
-    this.serverService.getAllAboutGallery().pipe(
-      map(response => {
-        let post = [];
-        for (const key in response) {
-          if (response.hasOwnProperty(key)) {
-            post.push({ ...response[key], id: key });
-          }
-        }
-        return post
-      })).subscribe(d => {
+    this.serverService.getAllAboutGallery().subscribe(d => {
         this.allAboutGallery = d;
         console.log(this.allAboutGallery)
       })
