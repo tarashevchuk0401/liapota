@@ -55,43 +55,9 @@
             <mat-label>Страви</mat-label>
             <input matInput type="text" ngModel name="dish2">
         </mat-form-field>
-        <!-- <mat-form-field>
-            <mat-label>Страва 3</mat-label>
-            <input matInput type="text" ngModel name="dish3" #dish3>
-        </mat-form-field>
-        <div *ngIf="dish3.value" class="additional_inputs">
-            <mat-form-field>
-                <mat-label>Страва 4</mat-label>
-                <input matInput type="text" ngModel name="dish4">
-            </mat-form-field>
-            <mat-form-field>
-                <mat-label>Страва 5</mat-label>
-                <input matInput type="text" ngModel name="dish5">
-            </mat-form-field>
-            <mat-form-field>
-                <mat-label>Страва 6</mat-label>
-                <input matInput type="text" ngModel name="dish6">
-            </mat-form-field>
-            <mat-form-field>
-                <mat-label>Страва 7</mat-label>
-                <input matInput type="text" ngModel name="dish7">
-            </mat-form-field>
-            <mat-form-field>
-                <mat-label>Страва 8</mat-label>
-                <input matInput type="text" ngModel name="dish8">
-            </mat-form-field>
-            <mat-form-field>
-                <mat-label>Страва 9</mat-label>
-                <input matInput type="text" ngModel name="dish9">
-            </mat-form-field>
-            <mat-form-field>
-                <mat-label>Страва 10</mat-label>
-                <input matInput type="text" ngModel name="dish10">
-            </mat-form-field>
-        </div> -->
         <mat-form-field>
             <mat-label>Примітки</mat-label>
-            <input matInput type="text" ngModel name="note" >
+            <input matInput type="text" ngModel name="note">
         </mat-form-field>
         <mat-form-field>
             <mat-label>Ціна</mat-label>
@@ -110,7 +76,7 @@
     <div class="container">
         <button (click)="filterByPartOfMenu('lunch')"
             [class.active_button]="checkedPartOfMenu == 'lunch'">Обіди</button>
-            <button (click)="filterByPartOfMenu('drinks')"
+        <button (click)="filterByPartOfMenu('drinks')"
             [class.active_button]="checkedPartOfMenu == 'buffet'">Напої</button>
         <button (click)="filterByPartOfMenu('set')" [class.active_button]="checkedPartOfMenu == 'set'">Мясні
             сети</button>
@@ -172,7 +138,7 @@
                 </td>
                 <td>{{item.price}} грн </td>
                 <td>
-                    <button (click)="deleteItem(item.id!)"> 
+                    <button (click)="deleteItem(item.id!)">
                         <mat-icon>
                             delete
                         </mat-icon>

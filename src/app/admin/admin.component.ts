@@ -88,9 +88,7 @@ export class AdminComponent implements OnInit {
   }
 
   deleteItem(id: string) {
-    this.server.deleteItem(id).subscribe(d => {
-      
-    })
+    this.server.deleteItem(id).subscribe();
   }
 
   ///// UPLOADING IMAGE

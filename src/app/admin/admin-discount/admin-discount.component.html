@@ -1,14 +1,15 @@
 <section class="part">
     <h1>Про нас</h1>
+    <section class="card_text">
+        <h1>Додати новий текст Про нас</h1>
+        <textarea #newAbout cols="30" rows="10"></textarea>
+        <button (click)="addAbout(newAbout.value)">Додати Про нас</button>
+    </section>
     <div class="wrapper">
         <section class="card" *ngFor="let d of allAbout">
             <img class="card_img" src={{d.urlOfImage}} alt="discounts.pic">
             <div class="card_text">
                 <p>{{d.text}}</p>
-                <mat-form-field>
-                    <label for="">Заголовок</label>
-                    <input type="text" matInput #header>
-                </mat-form-field>
                 <textarea #text></textarea>
                 <div class="image_input">
                     <mat-label>Додати Зображення</mat-label>
@@ -17,6 +18,8 @@
                     <button *ngIf="img.value" (click)="uploadImageAbout(d.id!)">Додати</button>
                 </div>
                 <button (click)="changeTextAbout(d.id!, text.value)">Змінити текст </button>
+                <button (click)="deleteAbout(d.id!)">Видалити </button>
+
             </div>
         </section>
     </div>
@@ -35,6 +38,15 @@
 <hr>
 <section class="part">
     <h1>Акції</h1>
+    <section class="card_text">
+        <h1>Додати новий текст Акції</h1>
+        <mat-form-field>
+            <label for="">Заголовок</label>
+            <input type="text" matInput #headerDiscount>
+        </mat-form-field>
+        <textarea #newDiscount cols="30" rows="10"></textarea>
+        <button (click)="addDiscount(newDiscount.value, headerDiscount.value)">Додати Про нас</button>
+    </section>
     <div class="wrapper">
         <section class="card" *ngFor="let d of allDiscounts">
             <img class="card_img" src={{d.urlOfImage}} alt="discounts.pic">
@@ -53,6 +65,7 @@
                     <button *ngIf="img.value" (click)="uploadImageDiscount(d.id!)">Додати</button>
                 </div>
                 <button (click)="changeTextDiscount(d.id!, text.value, header.value)">Змінити текст </button>
+                <button (click)="deleteDiscount(d.id!)">Видалити</button>
             </div>
         </section>
     </div>

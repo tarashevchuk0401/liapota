@@ -31,6 +31,18 @@ export class AdminDiscountComponent implements OnInit {
   }
  /////////////////  ABOUT-US ///////////
 
+ addAbout(newAbout: string){
+  let about: About ={
+    text : newAbout
+  }
+  this.serverService.addAbout(about).subscribe(d => { window.location.reload()})
+ }
+
+ deleteAbout(id: string) {
+  this.serverService.deleteAbout(id).subscribe(d => {
+    window.location.reload()
+  })
+}
   getAllAbout() {
     this.serverService.getAllAbout().pipe(
       map(response => {
@@ -99,6 +111,20 @@ export class AdminDiscountComponent implements OnInit {
 
 
     //////////////// DISCOUNTS //////////////////
+
+    addDiscount(newDiscount: string, headerDiscount: string){
+      let discount: Discount ={
+        text : newDiscount,
+        header: headerDiscount,
+      }
+      this.serverService.addDiscount(discount).subscribe(d => { window.location.reload()})
+     }
+    
+     deleteDiscount(id: string) {
+      this.serverService.deleteDiscount(id).subscribe(d => {
+        window.location.reload()
+      })
+    }
 
   getAllDiscount() {
     this.serverService.getAllDiscounts().pipe(
