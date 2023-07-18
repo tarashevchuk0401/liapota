@@ -32,16 +32,26 @@ export class MenuComponent implements OnInit {
 
     this.getNumberOfWeek();
     this.getAllItems();
-
-    console.log(this.currentPartOfMenu)
   }
 
   getAllItems() {
-    this.serverService.getItem()
+    this.serverService.getItem().pipe(
+      //debounce time used for let initialized this.currentNuberOfWeek
+      debounceTime(10),
+      map(response => {
+        let post = [];
+        for (const key in response) {
+          if (response.hasOwnProperty(key)) {
+            post.push({ ...response[key], id: key });
+          }
+        }
+        return post
+      }))
       .subscribe((data: any) => {
         this.allMenu = data;
         this.renderingMenu = this.allMenu.filter(item => item.dayOfWeek === this.dayNumberToday?.toString() || item.dayOfWeek === 'all')
           .filter(item => item.numberOfWeek === this.currentNumberOfWeek || item.numberOfWeek === 'all').sort((a, b) => a.idNumber - b.idNumber)
+
       });
   }
 
@@ -68,6 +78,7 @@ export class MenuComponent implements OnInit {
 
     if (newPart == 'lunch') {
       this.checkDay = this.dayNumberToday;
+      this.getAllItems();
       this.renderingMenu = this.renderingMenu.filter(item => item.dayOfWeek === this.dayNumberToday || item.dayOfWeek === 'all')
     } else return
   }
@@ -75,7 +86,7 @@ export class MenuComponent implements OnInit {
   changeDay(day: string) {
     this.renderingMenu = this.allMenu.filter(item => item.dayOfWeek === day || item.dayOfWeek === 'all')
       .filter(item => item.numberOfWeek === this.currentNumberOfWeek || item.numberOfWeek === 'all')
-      .sort((a, b) => a.idNumber - b.idNumber)
+      .sort((a, b) => a.idNumber - b.idNumber);
     this.checkDay = +day;
   }
 

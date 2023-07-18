@@ -19,27 +19,16 @@ export class ServerService {
   }
 
   getItem(): Observable<any> {
-    return this.httpClient.get(this.path).pipe(this.gettingIdKeyFromDB())
+    return this.httpClient.get(this.path).pipe(tap(d => console.log(d)))
   }
-  
-  ///// Reusable function for pipe 
-  gettingIdKeyFromDB(){
-  return  map((response : any) => {
-      let post = [];
-      for (const key in response) {
-        if (response.hasOwnProperty(key)) {
-          post.push({ ...response[key], id: key });
-        }
-      }
-      return post
-    })
-  }
+
+
 
   deleteItem(id: string) {
     return this.httpClient.delete('https://lapotaua-default-rtdb.europe-west1.firebasedatabase.app/menu/' + id + '.json')
   }
 
-  /// add url of image in menu
+  /// add url of image
 
   addUrlOfImage(id: string, urlOfImage: string) {
     return this.httpClient.patch('https://lapotaua-default-rtdb.europe-west1.firebasedatabase.app/menu/' + id + '.json', { urlOfImage: urlOfImage })
@@ -65,9 +54,7 @@ export class ServerService {
 
 
   getAllDiscounts(): Observable<any> {
-    return this.httpClient.get('https://lapotaua-default-rtdb.europe-west1.firebasedatabase.app/administration/discount.json').pipe(
-      this.gettingIdKeyFromDB()
-    )
+    return this.httpClient.get('https://lapotaua-default-rtdb.europe-west1.firebasedatabase.app/administration/discount.json')
   }
 
   changeTextDiscount(newDiscount: Discount, id: string) {
@@ -78,16 +65,14 @@ export class ServerService {
     return this.httpClient.patch('https://lapotaua-default-rtdb.europe-west1.firebasedatabase.app/administration/discount/' + id + '.json', { urlOfImage: urlOfImage })
   }
 
-  ///// administration (about-us) 
+  ///// about-us 
 
   addAbout(aboutItem: About): Observable<unknown> {
     return this.httpClient.post('https://lapotaua-default-rtdb.europe-west1.firebasedatabase.app/administration/about-us.json', aboutItem)
   }
 
   getAllAbout(): Observable<any> {
-    return this.httpClient.get('https://lapotaua-default-rtdb.europe-west1.firebasedatabase.app/administration/about-us.json').pipe(
-      this.gettingIdKeyFromDB()
-    );
+    return this.httpClient.get('https://lapotaua-default-rtdb.europe-west1.firebasedatabase.app/administration/about-us.json');
   }
 
   changeTextAbout(newAbout: About, id: string) {
@@ -102,12 +87,10 @@ export class ServerService {
     return this.httpClient.delete('https://lapotaua-default-rtdb.europe-west1.firebasedatabase.app/administration/about-us/' + id + '.json')
   }
 
-  //// administration (about-us gallery)
+  //// about-us gallery
 
   getAllAboutGallery(): Observable<any> {
-    return this.httpClient.get('https://lapotaua-default-rtdb.europe-west1.firebasedatabase.app/administration/gallery.json').pipe(
-      this.gettingIdKeyFromDB()
-    );
+    return this.httpClient.get('https://lapotaua-default-rtdb.europe-west1.firebasedatabase.app/administration/gallery.json');
   }
 
   addUrlOfImageAboutGallery(id: string, urlOfImage: string) {

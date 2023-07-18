@@ -45,7 +45,7 @@
             <input type="text" matInput #headerDiscount>
         </mat-form-field>
         <textarea #newDiscount cols="30" rows="10"></textarea>
-        <button (click)="addDiscount(newDiscount.value, headerDiscount.value)">Додати Про нас</button>
+        <button (click)="addDiscount(newDiscount.value, headerDiscount.value)">Додати Акцію</button>
     </section>
     <div class="wrapper">
         <section class="card" *ngFor="let d of allDiscounts">
