@@ -7,11 +7,6 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'liapota';
-  viberIconToogle: boolean = true;
-
-
-  closeViberIcon(){
-    this.viberIconToogle = false;
-  }
+  title = 'Ляпота';
+  
 }

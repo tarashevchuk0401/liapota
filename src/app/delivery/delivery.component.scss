@@ -27,7 +27,7 @@ p{
 .container{
     display: flex;
     flex-direction: row;
-    justify-content: flex-start;
+    justify-content: center;
     align-items: baseline;
     // margin-top: 100px;
 }
@@ -37,6 +37,12 @@ p{
     flex-direction: column;
     align-items: center;
     margin-top: 50px;
+    width: 50%;
+    justify-content: center;
+
+    p{
+        text-align: center;
+    }
 }
 
 .text_bold{
@@ -46,9 +52,64 @@ p{
     font-weight: 700;
 }
 
+a{
+    color: $color_green;
+    font-weight: 900;
+    display: block;
+    margin-right: 1.5rem;
+    margin-left: 1.5rem;
+    
+}
+
+.phones{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    flex-wrap: wrap;
+    align-items: center;
+    text-align: justify;
+}
+
+.phone_number{
+    text-align: justify;
+    font-size: 2rem;
+    line-height: 2.5rem;
+    margin-top: 1rem;
+    margin-left: 1rem;
+}
+
+.footer_section_icons{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.delivery_icons{
+    color: rgb(113, 32, 32);
+    background-color:$color_green;
+    padding: 0.5rem;
+    border-radius: 10px;
+    margin: 2rem;
+}
+
+
+
 @media (max-width:500px) {
     .container{
         flex-direction: column;
         margin-top: 50px;
+        align-items: center;
+
+        p{
+            margin-top: 0.5rem;
+        }
+    }
+
+    p{
+        margin-top: 1rem;
+    }
+
+    .phone_number{
+        font-size: 1.5rem;
     }
 }
