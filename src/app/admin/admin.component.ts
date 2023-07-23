@@ -103,7 +103,6 @@ export class AdminComponent implements OnInit {
    const uploadTask = await this.angularFireStoreg.upload( myId , this.path );
    const url = await uploadTask.ref.getDownloadURL();
    this.urlOfImage = await url;
-   await console.log(this.urlOfImage);
    await this.server.addUrlOfImage(myId, this.urlOfImage ).subscribe(d => window.location.reload())
 
   }
@@ -111,7 +110,6 @@ export class AdminComponent implements OnInit {
   
   submitNumberOfWeek(){
     if(confirm('Ви впевнені бажаєте змінити меню на тиждень номер ' + this.labelPosition )){
-      console.log(this.labelPosition);
       this.server.changeWeekNumber(this.labelPosition).subscribe()
     } 
   }

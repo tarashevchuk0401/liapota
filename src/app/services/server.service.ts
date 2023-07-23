@@ -19,7 +19,7 @@ export class ServerService {
   }
 
   getItem(): Observable<any> {
-    return this.httpClient.get(this.path).pipe(tap(d => console.log(d)))
+    return this.httpClient.get(this.path);
   }
 
 

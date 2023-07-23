@@ -48,7 +48,6 @@ export class AboutUsComponent implements OnInit{
         return post
       })).subscribe(d => {
         this.allAboutGallery = d;
-        console.log(this.allAboutGallery)
       })
   }
 }

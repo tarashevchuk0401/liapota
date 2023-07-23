@@ -16,10 +16,13 @@ const routes: Routes = [
   {path: 'menu', component: MenuComponent},
   {path: 'contact', component: ContactComponent},
   {path: 'about-us', component: AboutUsComponent},
-  {path: 'admin', component: AdminComponent},
   {path: 'delivery', component: DeliveryComponent},
   {path: 'discount', component: DiscountComponent},
-  {path: 'admin-discount', component: AdminDiscountComponent},
+  {
+    path: 'admin', 
+    loadChildren: () => import('./admin/admin.module').then((m) => m.AdminModule)
+  },
+
 ];
 
 @NgModule({

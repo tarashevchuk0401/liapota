@@ -54,9 +54,7 @@ export class AdminDiscountComponent implements OnInit {
         }
         return post
       })).subscribe(d => {
-        console.log(d)
         this.allAbout = d;
-        console.log(this.allAbout)
       })
   }
 
@@ -74,11 +72,9 @@ export class AdminDiscountComponent implements OnInit {
     //adding image to about-us
 
     async uploadImageAbout(myId: string) {
-      console.log(this.path);
       const uploadTask = await this.angularFireStoreg.upload(myId, this.path);
       const url = await uploadTask.ref.getDownloadURL();
       this.urlOfImage = await url;
-      await console.log(this.urlOfImage);
       await this.serverService.addUrlOfImageAbout(myId, this.urlOfImage).subscribe(d => window.location.reload())
     }
   
@@ -96,7 +92,6 @@ export class AdminDiscountComponent implements OnInit {
         return post
       })).subscribe(d => {
         this.allAboutGallery = d;
-        console.log(this.allAboutGallery)
       })
   }
 
@@ -105,7 +100,6 @@ export class AdminDiscountComponent implements OnInit {
       const uploadTask = await this.angularFireStoreg.upload(myId, this.path);
       const url = await uploadTask.ref.getDownloadURL();
       this.urlOfImage = await url;
-      await console.log(this.urlOfImage);
       await this.serverService.addUrlOfImageAboutGallery(myId, this.urlOfImage).subscribe(d => window.location.reload())
     }
 
@@ -138,7 +132,6 @@ export class AdminDiscountComponent implements OnInit {
         return post
       })).subscribe(d => {
         this.allDiscounts = d;
-        console.log(this.allDiscounts)
       })
   }
 
@@ -163,11 +156,9 @@ export class AdminDiscountComponent implements OnInit {
   }
 
   async uploadImageDiscount(myId: string) {
-    console.log(this.path);
     const uploadTask = await this.angularFireStoreg.upload(myId, this.path);
     const url = await uploadTask.ref.getDownloadURL();
     this.urlOfImage = await url;
-    await console.log(this.urlOfImage);
     await this.serverService.addUrlOfImageDiscount(myId, this.urlOfImage).subscribe(d => window.location.reload())
   }
 
