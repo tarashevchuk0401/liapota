@@ -18,10 +18,8 @@ const routes: Routes = [
   {path: 'about-us', component: AboutUsComponent},
   {path: 'delivery', component: DeliveryComponent},
   {path: 'discount', component: DiscountComponent},
-  {
-    path: 'admin', 
-    loadChildren: () => import('./admin/admin.module').then((m) => m.AdminModule)
-  },
+  {path: 'admin', component: AdminComponent},
+  {path: 'admin-discount', component: AdminDiscountComponent},
 
 ];
 
