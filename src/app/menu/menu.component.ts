@@ -27,21 +27,16 @@ export class MenuComponent extends SubjectService implements OnInit {
     super()
    }
 
-
-  int = interval(1000)
-
   ngOnInit(): void {
     this.getDayOfWeek();
     this.checkDay = this.dayNumberToday;
 
     this.getNumberOfWeek();
     this.getAllItems();
-    this.int.pipe(takeUntil(this.unsubscribe$)).subscribe(d =>console.log(d))
   }
 
   getAllItems() {
     this.serverService.getItem().pipe(
-      //debounce time used for let initialized this.currentNuberOfWeek
       map(response => {
         let post = [];
         for (const key in response) {
@@ -63,7 +58,8 @@ export class MenuComponent extends SubjectService implements OnInit {
 
   getNumberOfWeek() {
     this.serverService.getCurrentNumberOfWeek().pipe(
-      map(item => Object.values(item).toString())
+      map(item => Object.values(item).toString()),
+      takeUntil(this.unsubscribe$)
     ).subscribe(d => {
       this.currentNumberOfWeek = d;
       console.log('Тиждень : ' + d)

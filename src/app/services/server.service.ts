@@ -1,18 +1,23 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { MenuItem } from '../shared/MenuItem';
-import { Observable, map, tap } from 'rxjs';
+import { Observable, map, takeUntil, tap } from 'rxjs';
 import { Discount } from '../shared/Discount';
 import { About } from '../shared/About';
+import { SubjectService } from './subject.service';
 
 @Injectable({
   providedIn: 'root'
 })
-export class ServerService {
+export class ServerService extends SubjectService {
 
   path: string = 'https://lapotaua-default-rtdb.europe-west1.firebasedatabase.app/menu.json'
 
-  constructor(private httpClient: HttpClient) { }
+  constructor(private httpClient: HttpClient) {
+    super();
+   }
+
+  
 
   addItem(menuItem: MenuItem): Observable<unknown> {
     return this.httpClient.post(this.path, menuItem)

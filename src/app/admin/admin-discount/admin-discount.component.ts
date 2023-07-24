@@ -1,17 +1,18 @@
 import { Component, OnInit } from '@angular/core';
-import { first, map } from 'rxjs';
+import { first, map, takeUntil } from 'rxjs';
 import { ServerService } from 'src/app/services/server.service';
 import { Discount } from 'src/app/shared/Discount';
 import { AngularFireStorage } from '@angular/fire/compat/storage';
 import { About } from 'src/app/shared/About';
 import { AboutGallery } from 'src/app/shared/AboutGallery';
+import { SubjectService } from 'src/app/services/subject.service';
 
 @Component({
   selector: 'app-admin-discount',
   templateUrl: './admin-discount.component.html',
   styleUrls: ['./admin-discount.component.scss']
 })
-export class AdminDiscountComponent implements OnInit {
+export class AdminDiscountComponent  extends SubjectService implements OnInit {
 
   allDiscounts: Discount[] = [];
   allAbout: About[] = [];
@@ -22,7 +23,9 @@ export class AdminDiscountComponent implements OnInit {
   name: string = '';
   urlOfImage: string = '';
 
-  constructor(private serverService: ServerService, private angularFireStoreg: AngularFireStorage) { }
+  constructor(private serverService: ServerService, private angularFireStoreg: AngularFireStorage) { 
+    super()
+  }
 
   ngOnInit(): void {
     this.getAllDiscount();
@@ -35,16 +38,21 @@ export class AdminDiscountComponent implements OnInit {
   let about: About ={
     text : newAbout
   }
-  this.serverService.addAbout(about).subscribe(d => { window.location.reload()})
+  this.serverService.addAbout(about).pipe(
+    takeUntil(this.unsubscribe$)
+  ).subscribe(d => { window.location.reload()})
  }
 
  deleteAbout(id: string) {
-  this.serverService.deleteAbout(id).subscribe(d => {
+  this.serverService.deleteAbout(id).pipe(
+    takeUntil(this.unsubscribe$)
+  ).subscribe(d => {
     window.location.reload()
   })
 }
   getAllAbout() {
     this.serverService.getAllAbout().pipe(
+      takeUntil(this.unsubscribe$),
       map(response => {
         let post = [];
         for (const key in response) {
@@ -63,7 +71,9 @@ export class AdminDiscountComponent implements OnInit {
       let newAbout: About = {
         text: text,
       }
-      this.serverService.changeTextAbout(newAbout, id).subscribe(d => {
+      this.serverService.changeTextAbout(newAbout, id).pipe(
+        takeUntil(this.unsubscribe$),
+      ).subscribe(d => {
         window.location.reload()
       })
     }
@@ -82,6 +92,7 @@ export class AdminDiscountComponent implements OnInit {
     
   getAllAboutGallery() {
     this.serverService.getAllAboutGallery().pipe(
+      takeUntil(this.unsubscribe$),
       map(response => {
         let post = [];
         for (const key in response) {
@@ -111,17 +122,23 @@ export class AdminDiscountComponent implements OnInit {
         text : newDiscount,
         header: headerDiscount,
       }
-      this.serverService.addDiscount(discount).subscribe(d => { window.location.reload()})
+
+      this.serverService.addDiscount(discount).pipe(
+        takeUntil(this.unsubscribe$),
+      ).subscribe(d => { window.location.reload()})
      }
     
      deleteDiscount(id: string) {
-      this.serverService.deleteDiscount(id).subscribe(d => {
+      this.serverService.deleteDiscount(id).pipe(
+        takeUntil(this.unsubscribe$),
+      ).subscribe(d => {
         window.location.reload()
       })
     }
 
   getAllDiscount() {
     this.serverService.getAllDiscounts().pipe(
+      takeUntil(this.unsubscribe$),
       map(response => {
         let post = [];
         for (const key in response) {
@@ -142,7 +159,9 @@ export class AdminDiscountComponent implements OnInit {
         header: header,
         idNumber: id,
       }
-      this.serverService.changeTextDiscount(newDiscount, id).subscribe(d => {
+      this.serverService.changeTextDiscount(newDiscount, id).pipe(
+        takeUntil(this.unsubscribe$),
+      ).subscribe(d => {
         window.location.reload()
       })
     }

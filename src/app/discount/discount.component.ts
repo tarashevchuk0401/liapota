@@ -1,18 +1,21 @@
 import { Component, OnInit } from '@angular/core';
 import { ServerService } from '../services/server.service';
-import { map } from 'rxjs';
+import { map, takeUntil } from 'rxjs';
 import { Discount } from '../shared/Discount';
+import { SubjectService } from '../services/subject.service';
 
 @Component({
   selector: 'app-discount',
   templateUrl: './discount.component.html',
   styleUrls: ['./discount.component.scss']
 })
-export class DiscountComponent implements OnInit {
+export class DiscountComponent extends SubjectService implements OnInit {
 
   allDiscounts: Discount[] = [];
 
-  constructor(private serverService: ServerService) { }
+  constructor(private serverService: ServerService) { 
+    super();
+  }
 
   ngOnInit(): void {
     this.getAllDiscounts()
@@ -28,7 +31,9 @@ export class DiscountComponent implements OnInit {
           }
         }
         return post
-      })).subscribe(d => {
+      }),
+      takeUntil(this.unsubscribe$)
+      ).subscribe(d => {
         this.allDiscounts = d;
       })
   }

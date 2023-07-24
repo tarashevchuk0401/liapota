@@ -2,8 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { MenuItem } from '../shared/MenuItem';
 import { ServerService } from '../services/server.service';
-import { BehaviorSubject, Subject, map } from 'rxjs';
+import { BehaviorSubject, Subject, map, takeUntil } from 'rxjs';
 import { AngularFireStorage } from '@angular/fire/compat/storage';
+import { SubjectService } from '../services/subject.service';
 // import { SubjectService } from '../services/subject.service';
 
 @Component({
@@ -11,7 +12,7 @@ import { AngularFireStorage } from '@angular/fire/compat/storage';
   templateUrl: './admin.component.html',
   styleUrls: ['./admin.component.scss']
 })
-export class AdminComponent implements OnInit {
+export class AdminComponent extends SubjectService implements OnInit {
 
   allMenu: MenuItem[] = [];
   showMenu: MenuItem[] = [];
@@ -20,14 +21,16 @@ export class AdminComponent implements OnInit {
   checkedNumberOfWeek: string = '1';
   all: string = 'all'
 
-  labelPosition : string = '';
+  labelPosition: string = '';
 
   /// Image variables 
   path: string = '';
   name: string = '';
   urlOfImage: string = '';
 
-  constructor(private server: ServerService, private angularFireStoreg : AngularFireStorage) { }
+  constructor(private server: ServerService, private angularFireStoreg: AngularFireStorage) {
+    super();
+  }
 
   ngOnInit(): void {
     this.getAllItems();
@@ -42,18 +45,20 @@ export class AdminComponent implements OnInit {
       // dish5: menu.value.dish5,
       // dish6: menu.value.dish6,
       quantity: '',
-      dayOfWeek: menu.value.dayOfWeek ,
-      numberOfWeek : menu.value.numberOfWeek  ,
+      dayOfWeek: menu.value.dayOfWeek,
+      numberOfWeek: menu.value.numberOfWeek,
       price: menu.value.price,
       idNumber: menu.value.idNumber,
       partOfMenu: menu.value.partOfMenu,
-      urlOfImage : '',
-      note : menu.value.note,
-      weight : menu.value.weight,
+      urlOfImage: '',
+      note: menu.value.note,
+      weight: menu.value.weight,
     }
 
     if (menu.valid) {
-      this.server.addItem(item).subscribe(() => {
+      this.server.addItem(item).pipe(
+        takeUntil(this.unsubscribe$)
+      ).subscribe(() => {
         menu.reset();
         window.location.reload();
       })
@@ -63,6 +68,7 @@ export class AdminComponent implements OnInit {
 
   getAllItems() {
     this.server.getItem().pipe(
+      takeUntil(this.unsubscribe$),
       map(response => {
         let post = [];
         for (const key in response) {
@@ -81,14 +87,15 @@ export class AdminComponent implements OnInit {
     this.checkedPartOfMenu = query;
   }
 
-  changeDay(day: string){
+  changeDay(day: string) {
     this.showMenu = this.allMenu.filter(item => item.dayOfWeek === day);
     this.checkedDay = day;
-
   }
 
   deleteItem(id: string) {
-    this.server.deleteItem(id).subscribe();
+    this.server.deleteItem(id).pipe(
+      takeUntil(this.unsubscribe$)
+    ).subscribe();
   }
 
   ///// UPLOADING IMAGE
@@ -98,26 +105,25 @@ export class AdminComponent implements OnInit {
     this.name = $event.target.files[0].name
   }
 
-  async uploadImage(myId:  string) {
+  async uploadImage(myId: string) {
     console.log(this.path);
-   const uploadTask = await this.angularFireStoreg.upload( myId , this.path );
-   const url = await uploadTask.ref.getDownloadURL();
-   this.urlOfImage = await url;
-   await this.server.addUrlOfImage(myId, this.urlOfImage ).subscribe(d => window.location.reload())
-
+    const uploadTask = await this.angularFireStoreg.upload(myId, this.path);
+    const url = await uploadTask.ref.getDownloadURL();
+    this.urlOfImage = await url;
+    await this.server.addUrlOfImage(myId, this.urlOfImage).subscribe(d => window.location.reload())
   }
 
-  
-  submitNumberOfWeek(){
-    if(confirm('Ви впевнені бажаєте змінити меню на тиждень номер ' + this.labelPosition )){
-      this.server.changeWeekNumber(this.labelPosition).subscribe()
-    } 
+  submitNumberOfWeek() {
+    if (confirm('Ви впевнені бажаєте змінити меню на тиждень номер ' + this.labelPosition)) {
+      this.server.changeWeekNumber(this.labelPosition).pipe(
+        takeUntil(this.unsubscribe$)
+      ).subscribe()
+    }
   }
 
-  displayWeek(numberOfWeek: string){
+  displayWeek(numberOfWeek: string) {
     this.checkedNumberOfWeek = numberOfWeek;
     this.showMenu = this.allMenu.filter(item => item.numberOfWeek === numberOfWeek)
   }
-  
 
 }
