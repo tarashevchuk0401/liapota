@@ -1,15 +1,16 @@
 import { Component, OnInit, SimpleChanges } from '@angular/core';
 import { ServerService } from '../services/server.service';
 import { MenuItem } from '../shared/MenuItem';
-import { debounceTime, map } from 'rxjs';
+import { debounceTime, interval, map, takeUntil } from 'rxjs';
 import { MatDialog } from '@angular/material/dialog';
+import { SubjectService } from '../services/subject.service';
 
 @Component({
   selector: 'app-menu',
   templateUrl: './menu.component.html',
   styleUrls: ['./menu.component.scss']
 })
-export class MenuComponent implements OnInit {
+export class MenuComponent extends SubjectService implements OnInit {
 
   allMenu: MenuItem[] = [];
   todayMenu: MenuItem[] = [];
@@ -22,9 +23,12 @@ export class MenuComponent implements OnInit {
 
 
 
-  constructor(private serverService: ServerService) { }
+  constructor(private serverService: ServerService) {
+    super()
+   }
 
 
+  int = interval(1000)
 
   ngOnInit(): void {
     this.getDayOfWeek();
@@ -32,12 +36,12 @@ export class MenuComponent implements OnInit {
 
     this.getNumberOfWeek();
     this.getAllItems();
+    this.int.pipe(takeUntil(this.unsubscribe$)).subscribe(d =>console.log(d))
   }
 
   getAllItems() {
     this.serverService.getItem().pipe(
       //debounce time used for let initialized this.currentNuberOfWeek
-      debounceTime(10),
       map(response => {
         let post = [];
         for (const key in response) {
@@ -46,7 +50,9 @@ export class MenuComponent implements OnInit {
           }
         }
         return post
-      }))
+      }),
+      takeUntil(this.unsubscribe$)
+        )
       .subscribe((data: any) => {
         this.allMenu = data;
         this.renderingMenu = this.allMenu.filter(item => item.dayOfWeek === this.dayNumberToday?.toString() || item.dayOfWeek === 'all')

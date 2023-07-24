@@ -1,17 +1,17 @@
-// import { Injectable } from '@angular/core';
-// import { BehaviorSubject, Subject } from 'rxjs';
+import { Injectable, OnDestroy } from '@angular/core';
+import { BehaviorSubject, Subject } from 'rxjs';
 
-// @Injectable({
-//   providedIn: 'root'
-// })
-// export class SubjectService {
+@Injectable({
+  providedIn: 'root'
+})
+export class SubjectService implements OnDestroy {
 
-//   displayWeekNumber = new BehaviorSubject('test')
+  unsubscribe$ = new Subject<void>
 
-//   constructor() { }
+  constructor() { }
 
-//   sendWeekNumber(numberOfWeek: string){
-//     this.displayWeekNumber.next(numberOfWeek)
-//     console.log('ser')
-//   }
-// }
+  ngOnDestroy(): void {
+    this.unsubscribe$.next();
+    this.unsubscribe$.complete();
+  }
+}
