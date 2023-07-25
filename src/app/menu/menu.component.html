@@ -20,7 +20,8 @@
         <div *ngIf="currentPartOfMenu === 'lunch'" class="rendering_card">
             <div class="navigation_typeOfMenu">
                 <h1>Для вчасної ( швидкої ) доставки, обід краще замовляти до 11 год.
-                    <br> Обід замовляється відповідно до дня тижня.</h1>
+                    <br> Обід замовляється відповідно до дня тижня.
+                </h1>
             </div>
             <div class="week_navigation">
                 <nav>
@@ -39,10 +40,9 @@
             <section>
                 <div class="card" *ngFor="let item of renderingMenu">
                     <div class="card_left">
-                        <h2 class="card_left_h2">Комплекс {{item.idNumber}}</h2>
-                        <h3 class="item_price">{{item.price}} грн</h3>
-                        <p class="card_left_p">{{item.dish1}}</p>
+                        <p class="card_left_p ">{{item.dish1}}</p>
                         <p class="note">{{item.note}}</p>
+                        <h3 class="item_price">{{item.price}} грн</h3>
                     </div>
                     <div class="card_right">
                         <!-- <img src={{item.urlOfImage}} alt="">
@@ -97,8 +97,18 @@
                 <div class="card" *ngFor="let item of renderingMenu">
                     <div class="card_left">
                         <h2 class="card_left_h2">{{item.dish1}}</h2>
+                        <div class="card_left_description">
+                            <h2 class="card_left_h2 note">{{item.dish2}}</h2>
+                            <h2 class="card_left_h2 note">{{item.dish3}}</h2>
+                            <h2 class="card_left_h2 note">{{item.dish4}}</h2>
+                            <h2 class="card_left_h2 note">{{item.dish5}}</h2>
+                            <h2 class="card_left_h2 note">{{item.dish6}}</h2>
+                            <h2 class="card_left_h2 note">{{item.dish7}}</h2>
+                            <h2 class="card_left_h2 note">{{item.dish8}}</h2>
+                            <h2 class="card_left_h2 note">{{item.dish9}}</h2>
+                            <h2 class="card_left_h2 note">{{item.dish10}}</h2>
+                        </div>
                         <h3 class="item_price">{{item.price}} грн</h3>
-                        <p class="card_left_p">{{item.dish2}}</p>
                         <p class="note">{{item.note}}</p>
                     </div>
                     <div class="card_right">

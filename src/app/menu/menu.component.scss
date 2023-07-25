@@ -158,8 +158,8 @@ nav {
 
     img {
         object-fit: cover;
-        width: 100px;
-        height: 100px;
+        width: 130px;
+        height: 130px;
         border-radius: 20px;
     }
 }
@@ -172,15 +172,25 @@ nav {
 }
 
 .item_price {
-    font-size: 1.8rem;
+    font-size: 1.5rem;
     color: $color_green;
+    margin-top: 0.5rem;
 }
 
 .card_left_p {
-    font-size: 1.5rem;
-    font-weight: 300;
-    margin-top: 1rem;
+    font-size: 1.1rem;
+    font-weight: 500;
+    margin-top: .3rem;
     line-height: 2.5rem;
+}
+
+.note{
+    font-size: 1rem;
+    margin: 0;
+    font-style: 16px;
+    font-weight: 300;
+    margin-left: 0.2rem;
+    line-height: 1.3rem;
 }
 
 @media (max-width:1000px) {
@@ -246,7 +256,17 @@ nav {
     }
 
     .card_left_p {
-        font-size: 1.1rem;
+        font-size: 0.9rem;
+        line-height: 1.2rem;
+    }
+
+    .card_left{
+        width: 65%;
+    }
+
+    .card_left_description{
+        display: flex;
+        flex-wrap: wrap;
 
     }
 
@@ -271,6 +291,11 @@ nav {
         &::after {
             width: 0;
         }
+    }
+
+    .note{
+        font-size: .9rem;
+        line-height: 1.3rem;
     }
 
     .monday {

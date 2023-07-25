@@ -13,7 +13,7 @@ export class DiscountComponent extends SubjectService implements OnInit {
 
   allDiscounts: Discount[] = [];
 
-  constructor(private serverService: ServerService) { 
+  constructor(private serverService: ServerService) {
     super();
   }
 
@@ -33,9 +33,9 @@ export class DiscountComponent extends SubjectService implements OnInit {
         return post
       }),
       takeUntil(this.unsubscribe$)
-      ).subscribe(d => {
-        this.allDiscounts = d;
-      })
+    ).subscribe(d => {
+      this.allDiscounts = d;
+    })
   }
 
 
