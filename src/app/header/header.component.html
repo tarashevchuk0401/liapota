@@ -4,16 +4,18 @@
             <img routerLink="menu" class="logo_img" src="assets/logo/logo3.png" alt="logo">
         </div>
         <nav class="regular_menu">
-            <button routerLink="menu" routerLinkActive="header_button_active">Меню</button>
-            <button routerLink="discount" routerLinkActive="header_button_active">Акції</button>
-            <button routerLink="delivery" routerLinkActive="header_button_active">Доставка</button>
-            <button routerLink="contact" routerLinkActive="header_button_active">Контакти</button>
-            <button routerLink="about-us" routerLinkActive="header_button_active">Про нас</button>
+            <button routerLink="menu" routerLinkActive="header_button_active">{{'Меню' | translate}}</button>
+            <button routerLink="discount" routerLinkActive="header_button_active">{{'Акції' | translate}}</button>
+            <button routerLink="delivery" routerLinkActive="header_button_active">{{'Доставка' | translate}}</button>
+            <button routerLink="contact" routerLinkActive="header_button_active">{{'Контакти' | translate}}</button>
+            <button routerLink="about-us" routerLinkActive="header_button_active">{{'Про нас' | translate}} </button>
             <button routerLink="admin" routerLinkActive="header_button_active">
                 <mat-icon>
                     settings
                 </mat-icon>
             </button>
+            <button (click)="switchLanguage('en')">EN</button>
+            <button (click)="switchLanguage('ua')">UA</button>
 
         </nav>
         <button (click)="menuToggle()">
