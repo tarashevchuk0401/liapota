@@ -9,6 +9,7 @@ import { DeliveryComponent } from './delivery/delivery.component';
 import { DiscountComponent } from './discount/discount.component';
 import { AdminDiscountComponent } from './admin/admin-discount/admin-discount.component';
 import { AuthComponent } from './auth/auth.component';
+import { guard } from './services/auth.guard';
 
 const routes: Routes = [ 
   {path: '', component: MenuComponent},
@@ -17,8 +18,8 @@ const routes: Routes = [
   {path: 'about-us', component: AboutUsComponent},
   {path: 'delivery', component: DeliveryComponent},
   {path: 'discount', component: DiscountComponent},
-  {path: 'admin', component: AdminComponent},
-  {path: 'admin-discount', component: AdminDiscountComponent},
+  {path: 'admin', component: AdminComponent, canActivate: [guard]},
+  {path: 'admin-discount', component: AdminDiscountComponent, canActivate: [guard]},
   {path: 'auth', component: AuthComponent},
 ];
 

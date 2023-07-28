@@ -15,6 +15,7 @@ export class AuthComponent {
   submit(password: string){
       if(password === '1234'){
         this.router.navigate(['admin']);
+        sessionStorage.setItem('isAdmin', 'true');
       }
   }
 
