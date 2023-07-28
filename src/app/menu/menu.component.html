@@ -26,15 +26,30 @@
             <div class="week_navigation">
                 <nav>
                     <button class="buttonDay monday" (click)="changeDay('1')"
-                        [class.active_buttonDay]="dayNumberToday == 1" [class.checkDay]="checkDay == 1"></button>
+                        [class.active_buttonDay]="dayNumberToday == 1" [class.checkDay]="checkDay == 1">
+                        <span class="fullDay">{{'Понеділок' | translate}}</span>
+                        <span class="shortDay">{{'Пн' | translate}}</span>
+                    </button>
                     <button class="buttonDay tuesday" (click)="changeDay('2')"
-                        [class.active_buttonDay]="dayNumberToday == 2" [class.checkDay]="checkDay == 2"></button>
+                        [class.active_buttonDay]="dayNumberToday == 2" [class.checkDay]="checkDay == 2">
+                        <span class="fullDay">{{'Вівторок' | translate}}</span>
+                        <span class="shortDay">{{'Вт' | translate}}</span>
+                    </button>
                     <button class="buttonDay wednesday" (click)="changeDay('3')"
-                        [class.active_buttonDay]="dayNumberToday == 3" [class.checkDay]="checkDay == 3"></button>
+                        [class.active_buttonDay]="dayNumberToday == 3" [class.checkDay]="checkDay == 3">
+                        <span class="fullDay">{{'Середа' | translate}}</span>
+                        <span class="shortDay">{{'Ср' | translate}}</span>
+                    </button>
                     <button class="buttonDay thursady" (click)="changeDay('4')"
-                        [class.active_buttonDay]="dayNumberToday == 4" [class.checkDay]="checkDay == 4"></button>
+                        [class.active_buttonDay]="dayNumberToday == 4" [class.checkDay]="checkDay == 4">
+                        <span class="fullDay">{{'Четвер' | translate}}</span>
+                        <span class="shortDay">{{'Чт' | translate}}</span>
+                    </button>
                     <button class="buttonDay friday" (click)="changeDay('5')"
-                        [class.active_buttonDay]="dayNumberToday == 5" [class.checkDay]="checkDay == 5"></button>
+                        [class.active_buttonDay]="dayNumberToday == 5" [class.checkDay]="checkDay == 5">
+                        <span class="fullDay">{{'П\'ятниця' | translate}}</span>
+                        <span class="shortDay">{{'Пт' | translate}}</span>
+                    </button>
                 </nav>
             </div>
             <section>

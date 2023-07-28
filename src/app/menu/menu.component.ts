@@ -51,9 +51,14 @@ export class MenuComponent extends SubjectService implements OnInit {
       .subscribe((data: any) => {
         this.allMenu = data;
         this.renderingMenu = this.allMenu.filter(item => item.dayOfWeek === this.dayNumberToday?.toString() || item.dayOfWeek === 'all')
-          .filter(item => item.numberOfWeek === this.currentNumberOfWeek || item.numberOfWeek === 'all').sort((a, b) => a.idNumber - b.idNumber)
+          .filter(item => item.numberOfWeek === this.currentNumberOfWeek || item.numberOfWeek === 'all').sort((a, b) => a.idNumber - b.idNumber);
 
-      });
+          let a = [];
+         a.push(this.allMenu.map(a => a.note));
+         console.log(a)
+
+
+        });
   }
 
   getNumberOfWeek() {
