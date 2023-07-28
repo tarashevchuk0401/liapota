@@ -28,6 +28,7 @@ import {TranslateLoader, TranslateModule} from '@ngx-translate/core';
 import {TranslateHttpLoader} from '@ngx-translate/http-loader';
 import {HttpClient} from '@angular/common/http';
 import { AdminDiscountComponent } from './admin/admin-discount/admin-discount.component';
+import { AuthComponent } from './auth/auth.component';
 
 
 @NgModule({
@@ -41,7 +42,8 @@ import { AdminDiscountComponent } from './admin/admin-discount/admin-discount.co
     AboutUsComponent,
     DeliveryComponent,
     DiscountComponent,
-    AdminDiscountComponent
+    AdminDiscountComponent,
+    AuthComponent
   ],
   imports: [
     BrowserModule,
