@@ -126,6 +126,35 @@
                 <div class="card" *ngFor="let item of renderingMenu">
                     <div class="card_left">
                         <h2 class="card_left_h2">{{item.dish1}}</h2>
+                        <div class="card_left_description">
+                            <h2 class="card_left_h2 note">{{item.dish2}}</h2>
+                            <h2 class="card_left_h2 note">{{item.dish3}}</h2>
+                            <h2 class="card_left_h2 note">{{item.dish4}}</h2>
+                            <h2 class="card_left_h2 note">{{item.dish5}}</h2>
+                            <h2 class="card_left_h2 note">{{item.dish6}}</h2>
+                            <h2 class="card_left_h2 note">{{item.dish7}}</h2>
+                            <h2 class="card_left_h2 note">{{item.dish8}}</h2>
+                            <h2 class="card_left_h2 note">{{item.dish9}}</h2>
+                            <h2 class="card_left_h2 note">{{item.dish10}}</h2>
+                        </div>
+                        <h3 class="item_price">{{item.price}} грн</h3>
+                        <p class="note">{{item.note}}</p>
+                    </div>
+                    <div class="card_right">
+                        <img src={{item.urlOfImage}} alt="">
+                        <p class="card_left_p">Вага: {{item.weight}} г</p>
+                    </div>
+                </div>
+            </section>
+        </div>
+        <!-- <div *ngIf="currentPartOfMenu === 'buffet'" class="rendering_card">
+            <div class="navigation_typeOfMenu">
+                <h1>Фуршет</h1>
+            </div>
+            <section>
+                <div class="card" *ngFor="let item of renderingMenu">
+                    <div class="card_left">
+                        <h2 class="card_left_h2">{{item.dish1}}</h2>
                         <h3 class="item_price">{{item.price}} грн</h3>
                         <p class="card_left_p">{{item.dish2}}</p>
                         <p class="note">{{item.note}}</p>
@@ -136,7 +165,7 @@
                     </div>
                 </div>
             </section>
-        </div>
+        </div> -->
     </div>
     <aside>
         <div class="aside_section">

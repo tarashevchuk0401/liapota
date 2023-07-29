@@ -55,7 +55,7 @@
             <mat-label>Страви</mat-label>
             <input matInput type="text" ngModel name="dish2">
         </mat-form-field>
-        <div *ngIf="partOfMenu.value == 'set'">
+        <div *ngIf="partOfMenu.value == 'set' || partOfMenu.value == 'buffet'">
             <mat-form-field>
                 <mat-label>Страви</mat-label>
                 <input matInput type="text" ngModel name="dish3">

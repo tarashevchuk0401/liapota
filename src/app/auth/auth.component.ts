@@ -13,7 +13,7 @@ export class AuthComponent {
   constructor(private router : Router){}
 
   submit(password: string){
-      if(password === '1234'){
+      if(password === 'Liapotakafe1511'){
         this.router.navigate(['admin']);
         sessionStorage.setItem('isAdmin', 'true');
       }
