@@ -17,19 +17,17 @@ export class MenuComponent extends SubjectService implements OnInit {
   renderingMenu: MenuItem[] = [];
 
   dayNumberToday: number | undefined;
-  checkDay: number | undefined;
+  checkedDay: number | undefined;
   currentPartOfMenu: string = 'lunch';
   currentNumberOfWeek: string = '1';
 
-
-
   constructor(private serverService: ServerService) {
     super()
-   }
+  }
 
   ngOnInit(): void {
     this.getDayOfWeek();
-    this.checkDay = this.dayNumberToday;
+    this.checkedDay = this.dayNumberToday;
 
     this.getNumberOfWeek();
     this.getAllItems();
@@ -47,13 +45,13 @@ export class MenuComponent extends SubjectService implements OnInit {
         return post
       }),
       takeUntil(this.unsubscribe$)
-        )
-      .subscribe((data: any) => {
-        this.allMenu = data;
-        this.renderingMenu = this.allMenu.filter(item => item.dayOfWeek === this.dayNumberToday?.toString() || item.dayOfWeek === 'all')
-          .filter(item => item.numberOfWeek === this.currentNumberOfWeek || item.numberOfWeek === 'all').sort((a, b) => a.idNumber - b.idNumber)
+    ).subscribe((data: any) => {
+      this.allMenu = data;
+      this.renderingMenu = this.allMenu.filter(item => item.dayOfWeek === this.dayNumberToday?.toString() || item.dayOfWeek === 'all')
+        .filter(item => item.numberOfWeek === this.currentNumberOfWeek || item.numberOfWeek === 'all').sort((a, b) => a.idNumber - b.idNumber);
 
-      });
+        console.log(this.allMenu)
+    });
   }
 
   getNumberOfWeek() {
@@ -79,7 +77,7 @@ export class MenuComponent extends SubjectService implements OnInit {
       .sort((a, b) => a.idNumber - b.idNumber);
 
     if (newPart == 'lunch') {
-      this.checkDay = this.dayNumberToday;
+      this.checkedDay = this.dayNumberToday;
       this.getAllItems();
       this.renderingMenu = this.renderingMenu.filter(item => item.dayOfWeek === this.dayNumberToday || item.dayOfWeek === 'all')
     } else return
@@ -89,7 +87,7 @@ export class MenuComponent extends SubjectService implements OnInit {
     this.renderingMenu = this.allMenu.filter(item => item.dayOfWeek === day || item.dayOfWeek === 'all')
       .filter(item => item.numberOfWeek === this.currentNumberOfWeek || item.numberOfWeek === 'all')
       .sort((a, b) => a.idNumber - b.idNumber);
-    this.checkDay = +day;
+    this.checkedDay = +day;
   }
 
 }

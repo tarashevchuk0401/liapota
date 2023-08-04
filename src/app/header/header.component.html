@@ -4,28 +4,34 @@
             <img routerLink="menu" class="logo_img" src="assets/logo/logo3.png" alt="logo">
         </div>
         <nav class="regular_menu">
-            <button routerLink="menu" routerLinkActive="header_button_active">Меню</button>
-            <button routerLink="discount" routerLinkActive="header_button_active">Акції</button>
-            <button routerLink="delivery" routerLinkActive="header_button_active">Доставка</button>
-            <button routerLink="contact" routerLinkActive="header_button_active">Контакти</button>
-            <button routerLink="about-us" routerLinkActive="header_button_active">Про нас</button>
-            <button routerLink="admin" routerLinkActive="header_button_active">
-                <mat-icon>
-                    settings
-                </mat-icon>
+            <button routerLink="menu" routerLinkActive="header_button_active">{{'Меню' | translate}}</button>
+            <button routerLink="discount" routerLinkActive="header_button_active">{{'Акції' | translate}}</button>
+            <button routerLink="delivery" routerLinkActive="header_button_active">{{'Доставка' | translate}}</button>
+            <button routerLink="contact" routerLinkActive="header_button_active">{{'Контакти' | translate}}</button>
+            <button routerLink="about-us" routerLinkActive="header_button_active">{{'Про нас' | translate}} </button>
+            <button *ngIf="!isEnglish" (click)="switchLanguage('en')">
+                <img class="icon_flag" src="assets/icons/en.png" alt="">
             </button>
-
+            <button *ngIf="isEnglish" (click)="switchLanguage('ua')">
+                <img class="icon_flag" src="assets/icons/ua.png" alt="">
+            </button>
         </nav>
         <button (click)="menuToggle()">
             <img *ngIf="!showMobileMenu" class="burger_img" src="assets/icons/menu.svg" alt="">
             <img *ngIf="showMobileMenu" class="burger_img" src="assets/icons/close.svg" alt="">
         </button>
         <nav class="mobile_menu" *ngIf="showMobileMenu">
-            <button (click)="hideMenu()" class="mobile_button" routerLink="menu">Меню</button>
-            <button (click)="hideMenu()" class="mobile_button" routerLink="discount">Акції</button>
-            <button (click)="hideMenu()" class="mobile_button" routerLink="delivery">Доставка</button>
-            <button (click)="hideMenu()" class="mobile_button" routerLink="contact">Контакти</button>
-            <button (click)="hideMenu()" class="mobile_button" routerLink="about-us">Про нас</button>
+            <button (click)="hideMenu()" class="mobile_button" routerLink="menu">{{'Меню' | translate}}</button>
+            <button (click)="hideMenu()" class="mobile_button" routerLink="discount">{{'Акції' | translate}}</button>
+            <button (click)="hideMenu()" class="mobile_button" routerLink="delivery">{{'Доставка' | translate}}</button>
+            <button (click)="hideMenu()" class="mobile_button" routerLink="contact">{{'Контакти' | translate}}</button>
+            <button (click)="hideMenu()" class="mobile_button" routerLink="about-us">{{'Про нас' | translate}} </button>
+            <button *ngIf="!isEnglish" (click)="switchLanguage('en')"  class="mobile_button">
+                <img class="icon_flag" src="assets/icons/en.png" alt="">
+            </button>
+            <button *ngIf="isEnglish" (click)="switchLanguage('ua')" class="mobile_button">
+                <img class="icon_flag" src="assets/icons/ua.png" alt="">
+            </button>
         </nav>
     </header>
 </main>

@@ -7,7 +7,7 @@ export interface MenuItem {
     idNumber: number,
     quantity?: string,
     id?: string,
-    dish1: string,
+    dish1?: string,
     dish2?: string,
     dish3?: string,
     dish4?: string,

@@ -9,6 +9,7 @@ import { TranslateService } from '@ngx-translate/core';
 export class HeaderComponent {
 
   showMobileMenu: boolean = false;
+  isEnglish: boolean = false;
 
   constructor(private translate: TranslateService) {
     translate.setDefaultLang('ua');
@@ -16,7 +17,8 @@ export class HeaderComponent {
   }
 
   switchLanguage(language: string){
-    this.translate.use(language)
+    this.translate.use(language);
+    this.isEnglish = !this.isEnglish;
   }
 
   menuToggle(){

@@ -38,25 +38,25 @@ export class AdminComponent extends SubjectService implements OnInit {
 
   submitReset(menu: NgForm) {
     let item: MenuItem = {
-      dish1: menu.value.dish1,
-      dish2: menu.value.dish2,
-      dish3: menu.value.dish3,
-      dish4: menu.value.dish4,
-      dish5: menu.value.dish5,
-      dish6: menu.value.dish6,
-      dish7: menu.value.dish7,
-      dish8: menu.value.dish8,
-      dish9: menu.value.dish9,
-      dish10: menu.value.dish10,
+      dish1: menu.value.dish1.trim(),
+      dish2: menu.value.dish2.trim(),
+      dish3: menu.value.dish3.trim(),
+      dish4: menu.value.dish4.trim(),
+      dish5: menu.value.dish5.trim(),
+      dish6: menu.value.dish6.trim(),
+      dish7: menu.value.dish7.trim(),
+      dish8: menu.value.dish8.trim(),
+      dish9: menu.value.dish9.trim(),
+      dish10: menu.value.dish10.trim(),
       quantity: '',
       dayOfWeek: menu.value.dayOfWeek,
       numberOfWeek: menu.value.numberOfWeek,
-      price: menu.value.price,
+      price: menu.value.price.trim(),
       idNumber: menu.value.idNumber,
       partOfMenu: menu.value.partOfMenu,
       urlOfImage: '',
-      note: menu.value.note,
-      weight: menu.value.weight,
+      note: menu.value.note.trim(),
+      weight: menu.value.weight.trim(),
     }
 
     if (menu.valid) {

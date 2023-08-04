@@ -193,6 +193,19 @@ nav {
     line-height: 1.3rem;
 }
 
+.shortDay{
+    display: none;
+}
+
+.weekend{
+    margin: 3rem 0;
+    text-align: center;
+}
+
+.weekend_h1{
+    margin-top: 1rem;
+}
+
 @media (max-width:1000px) {
     aside {
         display: none;
@@ -298,67 +311,16 @@ nav {
         line-height: 1.3rem;
     }
 
-    .monday {
-        &::after {
-            content: 'Пн'
-        }
+    .fullDay{
+        display: none;
     }
 
-    .tuesday {
-        &::after {
-            content: 'Вт'
-        }
-    }
-
-    .wednesday {
-        &::after {
-            content: 'Ср'
-        }
-    }
-
-    .thursady {
-        &::after {
-            content: 'Чт'
-        }
-    }
-
-    .friday {
-        &::after {
-            content: 'Пт'
-        }
+    .shortDay{
+        display: inline;
     }
 
 }
 
 @media (min-width: 800px) {
 
-    .monday {
-        &::after {
-            content: 'Понеділок'
-        }
-    }
-
-    .tuesday {
-        &::after {
-            content: 'Вівторок'
-        }
-    }
-
-    .wednesday {
-        &::after {
-            content: 'Середа'
-        }
-    }
-
-    .thursady {
-        &::after {
-            content: 'Четвер'
-        }
-    }
-
-    .friday {
-        &::after {
-            content: "П'ятниця"
-        }
-    }
 }

@@ -2,47 +2,75 @@
     <div class="sidenav">
         <button class="button_side" (click)="changePartOfMenu('lunch')"
             [class.button_side_active]="currentPartOfMenu == 'lunch'">
-            Комплексні обіди</button>
+            {{'Комплексні обіди' | translate}}
+        </button>
         <button class="button_side" (click)="changePartOfMenu('dessert')"
             [class.button_side_active]="currentPartOfMenu == 'dessert'">
-            Десерти</button>
+            {{'Десерти' | translate}}
+        </button>
         <button class="button_side" (click)="changePartOfMenu('drinks')"
             [class.button_side_active]="currentPartOfMenu == 'drinks'">
-            Напої</button>
+            {{'Напої' | translate}}
+        </button>
         <button class="button_side" (click)="changePartOfMenu('set')"
             [class.button_side_active]="currentPartOfMenu == 'set'">
-            М'ясні сети</button>
+            {{'М\'ясні сети' | translate}}
+        </button>
         <button class="button_side" (click)="changePartOfMenu('buffet')"
             [class.button_side_active]="currentPartOfMenu == 'buffet'">
-            Фуршет</button>
+            {{'Фуршет' | translate}}
+        </button>
     </div>
     <div class="rendering">
         <div *ngIf="currentPartOfMenu === 'lunch'" class="rendering_card">
             <div class="navigation_typeOfMenu">
-                <h1>Для вчасної ( швидкої ) доставки, обід краще замовляти до 11 год.
-                    <br> Обід замовляється відповідно до дня тижня.
+                <h1>{{'Для вчасної ( швидкої ) доставки, обід краще замовляти до 11 год.' | translate}}
+                    <br> {{'Обід замовляється відповідно до дня тижня.' | translate}}
                 </h1>
             </div>
             <div class="week_navigation">
                 <nav>
                     <button class="buttonDay monday" (click)="changeDay('1')"
-                        [class.active_buttonDay]="dayNumberToday == 1" [class.checkDay]="checkDay == 1"></button>
+                        [class.active_buttonDay]="dayNumberToday == 1" [class.checkedDay]="checkedDay == 1">
+                        <span class="fullDay">{{'Понеділок' | translate}}</span>
+                        <span class="shortDay">{{'Пн' | translate}}</span>
+                    </button>
                     <button class="buttonDay tuesday" (click)="changeDay('2')"
-                        [class.active_buttonDay]="dayNumberToday == 2" [class.checkDay]="checkDay == 2"></button>
+                        [class.active_buttonDay]="dayNumberToday == 2" [class.checkedDay]="checkedDay == 2">
+                        <span class="fullDay">{{'Вівторок' | translate}}</span>
+                        <span class="shortDay">{{'Вт' | translate}}</span>
+                    </button>
                     <button class="buttonDay wednesday" (click)="changeDay('3')"
-                        [class.active_buttonDay]="dayNumberToday == 3" [class.checkDay]="checkDay == 3"></button>
+                        [class.active_buttonDay]="dayNumberToday == 3" [class.checkedDay]="checkedDay == 3">
+                        <span class="fullDay">{{'Середа' | translate}}</span>
+                        <span class="shortDay">{{'Ср' | translate}}</span>
+                    </button>
                     <button class="buttonDay thursady" (click)="changeDay('4')"
-                        [class.active_buttonDay]="dayNumberToday == 4" [class.checkDay]="checkDay == 4"></button>
+                        [class.active_buttonDay]="dayNumberToday == 4" [class.checkedDay]="checkedDay == 4">
+                        <span class="fullDay">{{'Четвер' | translate}}</span>
+                        <span class="shortDay">{{'Чт' | translate}}</span>
+                    </button>
                     <button class="buttonDay friday" (click)="changeDay('5')"
-                        [class.active_buttonDay]="dayNumberToday == 5" [class.checkDay]="checkDay == 5"></button>
+                        [class.active_buttonDay]="dayNumberToday == 5" [class.checkedDay]="checkedDay == 5">
+                        <span class="fullDay">{{'П\'ятниця' | translate}}</span>
+                        <span class="shortDay">{{'Пт' | translate}}</span>
+                    </button>
                 </nav>
+            </div>
+            <div *ngIf="dayNumberToday == 6 || dayNumberToday == 7 " class="weekend">
+                <h1 class="weekend_h1">{{'Вибачте, сьогодні ' | translate}} 
+                    <span *ngIf="dayNumberToday == 7" > {{'неділя' | translate}}.</span>
+                    <span *ngIf="dayNumberToday == 6" > {{'субота' | translate}}.</span>
+                    {{'Ми працюємо з понеділка по п\'ятницю.' | translate}}
+                </h1>
+                <h1 class="weekend_h1">{{'Ви можете перевірити меню на наступний тиждень.' | translate}}</h1>
             </div>
             <section>
                 <div class="card" *ngFor="let item of renderingMenu">
                     <div class="card_left">
-                        <p class="card_left_p ">{{item.dish1}}</p>
-                        <p class="note">{{item.note}}</p>
-                        <h3 class="item_price">{{item.price}} грн</h3>
+                        <p class="card_left_p ">{{item.dish1! | translate}}</p>
+                        <p class="note">{{item.note! | translate}}</p>
+                        <h3 class="item_price">{{item.price }} {{'грн' | translate}}</h3>
                     </div>
                     <div class="card_right">
                         <!-- <img src={{item.urlOfImage}} alt="">
@@ -53,133 +81,114 @@
         </div>
         <div *ngIf="currentPartOfMenu === 'dessert'" class="rendering_card">
             <div class="navigation_typeOfMenu">
-                <h1>Десерти</h1>
+                <h1>{{'Десерти' | translate}}</h1>
             </div>
             <section>
                 <div class="card" *ngFor="let item of renderingMenu">
                     <div class="card_left">
-                        <h2 class="card_left_h2"> {{item.dish1}}</h2>
-                        <h3 class="item_price">{{item.price}} грн</h3>
-                        <p class="card_left_p">{{item.dish2}}</p>
-                        <p class="note">{{item.note}}</p>
+                        <h2 class="card_left_h2"> {{item.dish1! | translate}}</h2>
+                        <h3 class="item_price">{{item.price}} {{'грн' | translate}}</h3>
+                        <p class="card_left_p">{{item.dish2! | translate}}</p>
+                        <p class="note">{{item.note! | translate}}</p>
                     </div>
                     <div class="card_right">
                         <img src={{item.urlOfImage}} alt="">
-                        <p class="card_left_p">Вага: {{item.weight}} г</p>
+                        <p class="card_left_p">{{'Вага' | translate}}: {{item.weight}} {{'г' | translate}}</p>
                     </div>
                 </div>
             </section>
         </div>
         <div *ngIf="currentPartOfMenu === 'drinks'" class="rendering_card">
             <div class="navigation_typeOfMenu">
-                <h1>Напої</h1>
+                <h1>{{'Напої' | translate}}</h1>
             </div>
             <section>
                 <div class="card" *ngFor="let item of renderingMenu">
                     <div class="card_left">
-                        <h2 class="card_left_h2"> {{item.dish1}}</h2>
-                        <h3 class="item_price">{{item.price}} грн</h3>
-                        <p class="card_left_p">{{item.dish2}}</p>
-                        <p class="note">{{item.note}}</p>
+                        <h2 class="card_left_h2"> {{item.dish1! | translate}}</h2>
+                        <h3 class="item_price">{{item.price}} {{'грн' | translate}}</h3>
+                        <p class="card_left_p">{{item.dish2! | translate}}</p>
+                        <p class="note">{{item.note! | translate}}</p>
                     </div>
                     <div class="card_right">
                         <img src={{item.urlOfImage}} alt="">
-                        <p class="card_left_p">Об'єм: {{item.weight}} мл</p>
+                        <p class="card_left_p">{{'Обєм' | translate}}: {{item.weight}} {{'мл' | translate}}</p>
                     </div>
                 </div>
             </section>
         </div>
         <div *ngIf="currentPartOfMenu === 'set'" class="rendering_card">
             <div class="navigation_typeOfMenu">
-                <h1>М'ясні сети</h1>
+                <h1> {{'М\'ясні сети' | translate}}</h1>
             </div>
             <section>
                 <div class="card" *ngFor="let item of renderingMenu">
                     <div class="card_left">
-                        <h2 class="card_left_h2">{{item.dish1}}</h2>
+                        <h2 class="card_left_h2">{{item.dish1! | translate}}</h2>
                         <div class="card_left_description">
-                            <h2 class="card_left_h2 note">{{item.dish2}}</h2>
-                            <h2 class="card_left_h2 note">{{item.dish3}}</h2>
-                            <h2 class="card_left_h2 note">{{item.dish4}}</h2>
-                            <h2 class="card_left_h2 note">{{item.dish5}}</h2>
-                            <h2 class="card_left_h2 note">{{item.dish6}}</h2>
-                            <h2 class="card_left_h2 note">{{item.dish7}}</h2>
-                            <h2 class="card_left_h2 note">{{item.dish8}}</h2>
-                            <h2 class="card_left_h2 note">{{item.dish9}}</h2>
-                            <h2 class="card_left_h2 note">{{item.dish10}}</h2>
+                            <h2 class="card_left_h2 note">{{item.dish2! | translate}}</h2>
+                            <h2 class="card_left_h2 note">{{item.dish3! | translate}}</h2>
+                            <h2 class="card_left_h2 note">{{item.dish4! | translate}}</h2>
+                            <h2 class="card_left_h2 note">{{item.dish5! | translate}}</h2>
+                            <h2 class="card_left_h2 note">{{item.dish6! | translate}}</h2>
+                            <h2 class="card_left_h2 note">{{item.dish7! | translate}}</h2>
+                            <h2 class="card_left_h2 note">{{item.dish8! | translate}}</h2>
+                            <h2 class="card_left_h2 note">{{item.dish9! | translate}}</h2>
+                            <h2 class="card_left_h2 note">{{item.dish10! | translate}}</h2>
                         </div>
-                        <h3 class="item_price">{{item.price}} грн</h3>
-                        <p class="note">{{item.note}}</p>
+                        <h3 class="item_price">{{item.price}} {{'грн' | translate}}</h3>
+                        <p class="note">{{item.note! | translate}}</p>
                     </div>
                     <div class="card_right">
                         <img src={{item.urlOfImage}} alt="">
-                        <p class="card_left_p">Вага: {{item.weight}} г</p>
+                        <p class="card_left_p">{{'Вага' | translate}}: {{item.weight}} {{'г' | translate}}</p>
                     </div>
                 </div>
             </section>
         </div>
         <div *ngIf="currentPartOfMenu === 'buffet'" class="rendering_card">
             <div class="navigation_typeOfMenu">
-                <h1>Фуршет</h1>
+                <h1>{{'Фуршет' | translate}}</h1>
             </div>
             <section>
                 <div class="card" *ngFor="let item of renderingMenu">
                     <div class="card_left">
-                        <h2 class="card_left_h2">{{item.dish1}}</h2>
+                        <h2 class="card_left_h2">{{item.dish1!}}</h2>
                         <div class="card_left_description">
-                            <h2 class="card_left_h2 note">{{item.dish2}}</h2>
-                            <h2 class="card_left_h2 note">{{item.dish3}}</h2>
-                            <h2 class="card_left_h2 note">{{item.dish4}}</h2>
-                            <h2 class="card_left_h2 note">{{item.dish5}}</h2>
-                            <h2 class="card_left_h2 note">{{item.dish6}}</h2>
-                            <h2 class="card_left_h2 note">{{item.dish7}}</h2>
-                            <h2 class="card_left_h2 note">{{item.dish8}}</h2>
-                            <h2 class="card_left_h2 note">{{item.dish9}}</h2>
-                            <h2 class="card_left_h2 note">{{item.dish10}}</h2>
+                            <h2 class="card_left_h2 note">{{item.dish2! | translate}}</h2>
+                            <h2 class="card_left_h2 note">{{item.dish3! | translate}}</h2>
+                            <h2 class="card_left_h2 note">{{item.dish4! | translate}}</h2>
+                            <h2 class="card_left_h2 note">{{item.dish5! | translate}}</h2>
+                            <h2 class="card_left_h2 note">{{item.dish6! | translate}}</h2>
+                            <h2 class="card_left_h2 note">{{item.dish7! | translate}}</h2>
+                            <h2 class="card_left_h2 note">{{item.dish8! | translate}}</h2>
+                            <h2 class="card_left_h2 note">{{item.dish9! | translate}}</h2>
+                            <h2 class="card_left_h2 note">{{item.dish10! | translate}}</h2>
                         </div>
-                        <h3 class="item_price">{{item.price}} грн</h3>
-                        <p class="note">{{item.note}}</p>
+                        <h3 class="item_price">{{item.price}} {{'грн' | translate}}</h3>
+                        <p class="note">{{item.note! | translate}}</p>
                     </div>
                     <div class="card_right">
                         <img src={{item.urlOfImage}} alt="">
-                        <p class="card_left_p">Вага: {{item.weight}} г</p>
+                        <p class="card_left_p">{{'Вага' | translate}}: {{item.weight}} {{'г' | translate}}</p>
                     </div>
                 </div>
             </section>
         </div>
-        <!-- <div *ngIf="currentPartOfMenu === 'buffet'" class="rendering_card">
-            <div class="navigation_typeOfMenu">
-                <h1>Фуршет</h1>
-            </div>
-            <section>
-                <div class="card" *ngFor="let item of renderingMenu">
-                    <div class="card_left">
-                        <h2 class="card_left_h2">{{item.dish1}}</h2>
-                        <h3 class="item_price">{{item.price}} грн</h3>
-                        <p class="card_left_p">{{item.dish2}}</p>
-                        <p class="note">{{item.note}}</p>
-                    </div>
-                    <div class="card_right">
-                        <img src={{item.urlOfImage}} alt="">
-                        <p class="card_left_p">Вага: {{item.weight}} г</p>
-                    </div>
-                </div>
-            </section>
-        </div> -->
     </div>
     <aside>
         <div class="aside_section">
             <img class="aside_img" src="assets/icons/clock.svg" alt="clock">
             <div>
-                <h2 class="aside_h2">Працюємо ПН-ПТ</h2>
+                <h2 class="aside_h2">{{'Працюємо ПН-ПТ' | translate}} </h2>
                 <h2 class="aside_h2">9:00 - 17:00</h2>
             </div>
         </div>
         <div class="aside_section">
             <img class="aside_img" src="assets/icons/map.svg" alt="clock">
             <div>
-                <h2 class="aside_h2">вул. Львівська, 11а</h2>
-                <h2 class="aside_h2">вул. Руська 56а</h2>
+                <h2 class="aside_h2"> {{'вул. Львівська' | translate}}, 11а</h2>
+                <h2 class="aside_h2"> {{'вул. Руська' | translate}}, 56а</h2>
             </div>
         </div>
         <div class="aside_section">

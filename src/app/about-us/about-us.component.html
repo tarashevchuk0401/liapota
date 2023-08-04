@@ -1,9 +1,9 @@
 <div class="wrapper">
-    <h1>Про нас </h1>
-    <h2>Вас вітає кафе ЛЯПОТА!</h2>
+    <h1>{{'Про нас' | translate}}  </h1>
+    <h2>{{'Вас вітає кафе ЛЯПОТА!' | translate}} </h2>
     <div class="card_about" *ngFor="let a  of allAbout">
         <img class="card_about_img" src={{a.urlOfImage}} alt="abot-us_pic">
-        <p>{{a.text}}</p>
+        <p>{{a.text | translate}}</p>
     </div>
     <div class="gallery_small">
         <div *ngFor="let i of allAboutGallery">
